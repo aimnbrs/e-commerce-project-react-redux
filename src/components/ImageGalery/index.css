@@ -1,0 +1,93 @@
+
+
+/*image gallary*-------*/
+.grid-img {
+    margin-top: 0;
+  }
+  .imgg {
+    margin: 0 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .img img:first-of-type  {
+    width: 250px;
+    height: 320px
+  }
+  .img {
+    color: #8A8989;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .img a {
+    color: #8A8989;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1rem;
+    margin: 15px 0 0 0;
+    width: max-content;
+    height: max-content;
+  }
+  .img span {
+    float: right;
+  }
+  .heartlk {
+    padding: 15px 0 0 0;
+  }
+  .img p {
+    color: #8A8989;
+    font-family: 'Blinker', sans-serif;
+    margin-top: 0.5rem;
+  }
+  
+  /*bottun hover effect*/
+  .imgbtn .butn, .grid-img .butn {
+    opacity: 0;
+    position: absolute;
+    transform: translate(-30vh,50vh) ;
+    transition: 0.2s;
+    background-color: white;
+  }
+  .imgbtn:hover .butn {
+    opacity: 1;
+    transform: translate(-30vh,35vh);
+  }
+  .imgg .butn:hover {
+    background-color: #343232;
+    color : white;
+  }
+  
+  /*image focuse on hover*/
+  .imgbtn {
+    width: 250px;
+    height: 320px;
+    overflow: hidden;
+  }
+  .imgbtn img {
+    transition: 1s;
+  }
+  .imgbtn:hover img {
+    transform: scale(1.1);
+  }
+  /*buttn*/
+  .btn {
+    display: flex;
+    justify-content: center;
+    margin: 10vh 0 20vh 0;
+  }
+  .btnfxd {
+    font-size: 1rem;
+    color: black;
+    background-color: #E0E0E1;
+    display: inline ;
+    transition: 0.3s;
+  }
+  .btnfxd:hover {
+    color: white;
+    background-color: #343232;
+  }
+  
+  
+  

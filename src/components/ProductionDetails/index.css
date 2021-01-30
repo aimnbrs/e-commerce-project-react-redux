@@ -1,0 +1,73 @@
+.mainProduction, .imagesOptions, .SecondaryImages,
+.orderOptions, .SizeColorInput, .currentImage {
+    display: flex;
+}
+ /* .productionDetails {
+    position : fixed;
+    border: red 1px solid;
+    z-index: 1;
+    transform: translateY(-125px);
+    height: 100vh;
+    width: 100vw;
+ }
+
+.mainProduction {
+    margin: 0 20vh;
+    position : fixed;
+    background-color : white;
+    z-index: 2;
+    border: brown 1px solid;
+    height: 70vh;
+    overflow-y: auto;
+    padding:  10vh;
+    position : fixed;
+    transform: translateY(-160px);
+    transform: translateX(-10vh);
+} */
+
+.imageDetails {
+    flex: 80%;
+}
+.currentImage {
+    flex: 60%;
+    justify-content: center;
+}
+
+.SecondaryImages, .orderOptions {
+    flex-direction: column;
+    align-items: center;
+}
+
+.orderOptions {
+    margin: 0 8vh;
+}
+
+.SecondaryImages img{
+    padding: 0 5vh 5vh 5vh;
+}
+
+.SizeColorInput {
+    align-self: flex-end;
+}
+.SizeColorInput h4 {
+    margin: 10px 20px 0 0;
+}
+.SizeColorInput select,.SizeColorInpu  option {
+    width: 50vh;
+    height: 8vh;
+}
+
+.SizeColorInput + div {
+    margin: 10px 0 ;
+}
+.SizeColorInput + div span {
+    border: rgb(158, 158, 158) 1px solid;
+    padding: 10px 20px 10px 20px;
+    margin: 1px;
+}
+
+.orderOptions button {
+    margin: 10px 0 30px 0;
+    padding: 10px 30px 10px 30px;
+    border-radius: 25px;
+}

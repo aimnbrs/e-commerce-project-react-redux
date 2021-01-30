@@ -1,0 +1,16 @@
+.imageBlog {
+    background-image: url("blog-01.jpg");
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 60vh;
+    background-size: cover;
+}
+
+.Blogcontainerspan {
+    margin: 0 5px 0 5px;
+}
+.area-4 {
+display: flex;
+
+}

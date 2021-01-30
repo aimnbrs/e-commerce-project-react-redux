@@ -1,0 +1,28 @@
+
+
+.women {
+    grid-area: women;
+    background-image: url("images/banner-01.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px #E8E6E6 solid;
+  }
+  .men {
+    grid-area : men;
+    background-image: url("images/banner-02.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px #E8E6E6 solid;
+    display: flex;
+    flex-flow: wrap;
+  }
+  .accessoiries {
+    grid-area : accrs;
+    background-image: url("images/banner-03.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px #E8E6E6 solid;
+  }

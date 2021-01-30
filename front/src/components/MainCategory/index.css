@@ -1,0 +1,165 @@
+
+
+/*sction2*/
+#ss {
+  margin: 13vh 12vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 38vh;
+  grid-column-gap: 30px;
+  grid-template-areas:
+  "women men accrs"
+}
+
+
+#ss h1 {
+font-family: 'Abril Fatface', cursive;
+font-family: 'Exo 2', sans-serif;
+margin: 30px 0 0 30px ;
+}
+#ss p {
+  font-family: 'Blinker', sans-serif;
+  margin: 10px 0 0 30px ;
+}
+#ss h4 {
+  font-family: 'Blinker', sans-serif;
+  position: relative;
+  left: 30px;
+  top: 13vh;
+  transition: 0.5s ;
+  transition-delay: 0.2s;
+  opacity: 0;
+}
+#ss a {
+  text-decoration: none;
+  color: black;
+}
+
+#ss .line {
+  visibility: hidden;
+  position: relative;
+  left: 30px;
+  top: 8vh;
+  width: 75px;
+  height: 2px;
+  background: black;
+  transition: 0.3s ;
+  transform: scaleX(0)
+}
+
+/*shop now animation--------------------------------*/
+#ss a:hover .line {
+  transform: scaleX(1);
+  visibility: visible;
+}
+#ss a:hover h4 {
+  opacity: 1;
+  top: 9.5vh;
+  letter-spacing: inherit;
+  opacity: 1;
+}
+
+#ss a:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 1100px) {
+
+  /*sction2*/
+  #ss {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50vh 50vh;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    grid-template-areas:
+    "women men"
+    "accrs accrs";
+  }
+  .accessoiries {
+    margin: 0 0;
+  }
+  #ss h4 {
+    top: 23vh;
+  }
+  
+  #ss .line {
+    top: 18vh;
+  }
+  #ss a:hover h4 {
+    top: 19.5vh;
+  }
+  
+  }
+  @media screen and (max-width:920px) {
+    /*sction2*/
+    #ss {
+      grid-template-columns: 1fr;
+      grid-template-rows: 70vh 70vh 70vh;
+      grid-template-areas:
+      "women"
+      "men"
+      "accrs";
+    }
+    .accessoiries {
+      margin: 0 ;
+    }
+    #ss h4 {
+      top: 45vh;
+    }
+    #ss .line {
+      top: 40vh;
+    }
+    #ss a:hover h4 {
+      top: 40.5vh;
+    }
+    }
+    @media screen and (max-width:690px) {
+      #ss {
+        grid-template-columns: 1fr;
+        grid-template-rows: 50vh 50vh 50vh;
+        grid-template-areas:
+        "women"
+        "men"
+        "accrs";
+      }
+      #ss h4 {
+        top: 28vh;
+      }
+    
+      #ss .line {
+        top: 22vh;
+      }
+      #ss a:hover h4 {
+        top: 24.5vh;
+      }
+      /*section3*/
+      .prov {
+        margin: 10vh 3vh 10vh 3vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 15vh 10vh 10vh;
+        grid-template-areas:
+        "p"
+        "filtr"
+        "filtrsrc";
+      }
+      .filtr {margin: 0 50px 0 0;}
+      .filtrsrc {justify-content: flex-start;}
+      .filtrsrc a {margin-left: 0;margin-right: 10px;}
+    
+      /*collapse menu-----------------------------*/
+      .collapse ul {
+       width : 40vh;
+       height: 35vh;
+      }
+      .para {
+        text-align: center;
+      }
+    }
+    
+    @media screen and (max-width:550px) {
+      #ss {
+        margin: 20px;
+      }
+  
+      }
+      

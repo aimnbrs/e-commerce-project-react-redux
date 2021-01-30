@@ -1,0 +1,72 @@
+.mainheaderContact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("Contact.jpg");
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 40vh;
+    background-size: cover;
+    color : white;
+    font-family: 'Blinker', sans-serif, cursive;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.mainContact, .sendMessageContainer, .sendMessage,
+ .informationsContainer, .informationscontact {
+    display: flex;
+}
+.mainContact {
+    flex-direction: row;
+    margin: 15vh;
+}
+.sendMessageContainer, .informationsContainer {
+    border: rgb(182, 182, 184) 1px solid;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10vh;
+    padding-bottom: 15vh;
+}
+.sendMessage, .informationsContact {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sendMessageContainer{
+   border-right-style: none;
+}
+.informationsContact > div  {
+    display: flex;
+    flex-direction: row;
+}
+.informationsContact span {
+    padding: 22px 20px 0 0;
+}
+
+.mainContact input, .mainContact textarea {
+    min-width: 70vh;
+    max-width: 70vh;
+    margin-bottom: 20px;
+}
+.mainContact button {
+    margin-top: 20px;
+    border-radius: 25px;
+    width: 70vh;
+    height: 8vh;
+    color: white;
+    background-color: rgb(12, 12, 12);
+    border-style: none;
+    font-size: 17px;
+}
+.mainContactform {
+    margin-top: 4vh;
+}
+
+.informationsContact p {
+    width: 40vh;
+}

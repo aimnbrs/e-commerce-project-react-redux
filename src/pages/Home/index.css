@@ -1,0 +1,52 @@
+    @import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
+    @import url('https://fonts.googleapis.com/css?family=Blinker&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Blinker|Ubuntu&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Blinker|Montserrat|PT+Sans+Narrow|Titillium+Web&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Anton|Blinker|Montserrat|PT+Sans+Narrow|Titillium+Web&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Anton|Blinker|Exo+2|Lexend+Exa|Montserrat|PT+Sans+Narrow|Titillium+Web&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Exo+2:700&display=swap');
+
+
+/*body*/
+
+body {
+  margin: 0;
+  padding: 0;
+  animation: opacity 2s
+}
+
+/*global css*/
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+
+/*media********************************************/
+
+@media screen and (max-width:550px) {
+#ss {
+  margin: 20px;
+}
+.collapse {
+  width: 80%;
+}
+}
+
+
+
+
+
+
+
+/*nav bar*/
+
+
+/*sction2*/
+
+/*section3*/
+
+/*footer*/

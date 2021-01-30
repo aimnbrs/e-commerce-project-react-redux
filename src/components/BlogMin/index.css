@@ -1,0 +1,17 @@
+.productMin {
+    display: flex;
+    flex-direction: row;
+}
+
+.productMinSection {
+ margin-left:80px ;
+ margin-top: 80px;
+}
+
+.productMinDetails {
+ padding: 0 50px 0 25px;
+}
+
+.productMinDetails h4 {
+ margin-top: 0;
+}
