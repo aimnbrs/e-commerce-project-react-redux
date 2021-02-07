@@ -1,12 +1,8 @@
 import productConst from "./productConstant"
 
-const initialState = {
-    loading : false,
-    productCollection : null,
-    err : {}
-}
 
-function productCollectionReducer (state = {...initialState}, action) {
+
+function productCollectionReducer (state = {products : []}, action) {
     switch (action.type) {
         case productConst.PRODUCTCOLLECTION_REQUEST :
             return {
@@ -17,7 +13,7 @@ function productCollectionReducer (state = {...initialState}, action) {
             return {
                 ...state,
                 loading : false,
-                productCollection : action.payload
+                products : action.payload
             }    
         case productConst.PRODUCTCOLLECTION_FAILURE :
             return {
@@ -29,7 +25,7 @@ function productCollectionReducer (state = {...initialState}, action) {
     }
 }
 
-function creatProductReducer(state = {...initialState}, action) {
+function creatProductReducer(state = {}, action) {
     switch (action.type) {
         case productConst.CREATPRODUCT_REQUEST :
             return {
@@ -40,7 +36,7 @@ function creatProductReducer(state = {...initialState}, action) {
             return {
                 ...state,
                 loading : false,
-                productCollection 
+                productCollection : null
             }    
         case productConst.CREATPRODUCT_FAILURE :
             return {
@@ -54,7 +50,7 @@ function creatProductReducer(state = {...initialState}, action) {
 
 
 
-function updateProductReducer(state = {...initialState}, action) {
+function updateProductReducer(state = {}, action) {
     switch (action.type) {
         case productConst.UPDATEPRODUCT_REQUEST :
             return {
@@ -65,7 +61,7 @@ function updateProductReducer(state = {...initialState}, action) {
             return {
                 ...state,
                 loading : false,
-                productCollection 
+                productCollection : null 
             }    
         case productConst.UPDATEPRODUCT_FAILURE :
             return {
@@ -77,7 +73,7 @@ function updateProductReducer(state = {...initialState}, action) {
     }
 }
 
-function deleteProductReducer(state = {...initialState}, action) {
+function deleteProductReducer(state = {}, action) {
     switch (action.type) {
         case productConst.DELETEPRODUCT_REQUEST :
             return {
@@ -88,7 +84,7 @@ function deleteProductReducer(state = {...initialState}, action) {
             return {
                 ...state,
                 loading : false,
-                productCollection 
+                productCollection : null 
             }    
         case productConst.DELETEPRODUCT_FAILURE :
             return {

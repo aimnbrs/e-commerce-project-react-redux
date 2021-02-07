@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
-import {signIn} from "../../redux/users/userAction";
+import { signIn } from "../../redux/users/userAction";
 import store from "../../store";
 
 import "./index.css";

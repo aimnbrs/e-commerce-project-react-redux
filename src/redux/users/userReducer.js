@@ -1,12 +1,8 @@
 import userConst from "./userConstant"
 
-const initialState = {
-    loading : false,
-    userInfo : null,
-    err : {}
-}
 
-function signInReducer (state = {...initialState}, action) {
+
+function signInReducer (state = {}, action) {
     switch (action.type) {
         case userConst.SIGNIN_REQUEST :
             return {
@@ -29,7 +25,7 @@ function signInReducer (state = {...initialState}, action) {
     }
 }
 
-function signUpReducer(state = {...initialState}, action) {
+function signUpReducer(state = {}, action) {
     switch (action.type) {
         case userConst.SIGNUP_REQUEST :
             return {
@@ -52,7 +48,7 @@ function signUpReducer(state = {...initialState}, action) {
     }
 }
 
-function signOutReducer(state = {...initialState}, action) {
+function signOutReducer(state = {}, action) {
     switch (action.type) {
   
         case userConst.SIGNOUT :
@@ -70,7 +66,7 @@ function signOutReducer(state = {...initialState}, action) {
     }
 }
 
-function updateReducer(state = {...initialState}, action) {
+function updateReducer(state = {}, action) {
     switch (action.type) {
         case userConst.UPDATE_REQUEST :
             return {

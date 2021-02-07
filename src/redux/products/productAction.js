@@ -7,15 +7,15 @@ const productCollection = () => async (dispatch) => {
   dispatch({ type:  productConst.PRODUCTCOLLECTION_REQUEST });
   console.log("error",store.getState());
   try {
-    let { data } = await axios.get(
+    let  {data}  = await axios.get(
       "http://localhost:5000/product"
     );
     console.log("productCollectionAction", data);
-    dispatch({ type: productConst.PRODUCTCOLLECTION_SUCCESS });
-    Cookie.set("productCollectionStore", JSON.stringify(data));
+    dispatch({ type: productConst.PRODUCTCOLLECTION_SUCCESS, payload : data });
+    Cookie.set("productCollectionStore",JSON.stringify(data));
     console.log(store.getState());
   } catch (error) {
-    dispatch({ type: PRODUCTCOLLECTION_FAILURE, payload: error.message });
+    dispatch({ type: productConst.PRODUCTCOLLECTION_FAILURE, payload: error.message });
     console.log("error",store.getState());
   }
 };
@@ -51,14 +51,14 @@ const updateProduct = (id) => async (dispatch) => {
   };
 
 const deleteProduct = (id) => async (dispatch) => {
-  dispatch({ type: DELETEPRODUCT_REQUEST });
+  dispatch({ type: productConst.DELETEPRODUCT_REQUEST });
   try {
     let { data } = await axios.delete("http://localhost:5000/product:" + id);
     console.log("deleteProduct", data);
-    dispatch({ type: DELETEPRODUCT_SUCCESS });
+    dispatch({ type: productConst.DELETEPRODUCT_SUCCESS });
     console.log("deleteProductStore", store.getState());
   } catch (error) {
-    dispatch({ type: DELETEPRODUCT_FAILURE, payload: error.message });
+    dispatch({ type: productConst.DELETEPRODUCT_FAILURE, payload: error.message });
     console.log("error",store.getState());
   }
 };

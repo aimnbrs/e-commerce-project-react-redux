@@ -1,25 +1,35 @@
-import React , { Fragment } from 'react';
-import ProductBox from '../ProductBox';
-import './index.css';
+import React, { Fragment } from "react";
+import Cookie from "js-cookie";
+import { useSelector, useDispatch } from "react-redux";
+import ProductBox from "../ProductBox";
+import "./index.css";
 
+export default function ImageGalery() {
+  
+  const data = useSelector(state => state.productCollection) 
+  const { loading, products, err } = data;
+  console.log("galerystore", products)
 
-
-
-export default function ImageGalery ({changeSummary}) {
-    return (
-        <Fragment>
-             <div className="grid-img">
-      <div className="imgg" id="imgg">
-          <ProductBox changeSummary= {changeSummary}/>
-          <ProductBox changeSummary= {changeSummary}/>
-          <ProductBox changeSummary= {changeSummary}/>
-          <ProductBox changeSummary= {changeSummary}/>
-
-          </div>
-                </div>
-                <div className="btn" id="butn-btnfxd">
-                    <a className="butn btnfxd">LOAD MORE</a>
-                </div>
-        </Fragment>
-    )
+  return (
+    <Fragment>
+      <div className="grid-img">
+        <div className="imgg" id="imgg">
+          {
+              products.map((product) => (
+                  <ProductBox
+                  price={product.price}
+                  model={product.model} 
+                  url={product.url}
+                  />
+                
+              ))
+          }
+        </div>
+      </div>
+      <div className="btn" id="butn-btnfxd">
+      <a className="butn btnfxd">ADD PRODUCT</a>
+      <a className="butn btnfxd">LOAD MORE</a>
+      </div>
+    </Fragment>
+  );
 }

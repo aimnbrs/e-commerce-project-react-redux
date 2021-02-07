@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Home from './pages/Home';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -11,10 +11,18 @@ import Contact from './pages/Contact';
 import ProductionDetails from './components/ProductionDetails';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import { useDispatch } from 'react-redux';
+import { productCollection } from "./redux/products/productAction";
 
 
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(()=> {
+    dispatch(productCollection())
+  }, [])
+  
+ 
   return (
     <div className="App">
       <BrowserRouter>
