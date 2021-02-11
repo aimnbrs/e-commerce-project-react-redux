@@ -2,14 +2,15 @@
 
 /*image gallary*-------*/
 .grid-img {
-    margin-top: 0;
+    
+    margin: 10vh ;
   }
   .imgg {
-    margin: 0 10vh;
+    
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .img img:first-of-type  {
     width: 250px;
@@ -43,16 +44,22 @@
   }
   
   /*bottun hover effect*/
-  .imgbtn .butn, .grid-img .butn {
+  .imgbtn .butn {
     opacity: 0;
-    position: absolute;
-    transform: translate(-30vh,50vh) ;
-    transition: 0.2s;
+    position: relative;
+    /* transform: translate(-20vh,50vh) ; */
+    top : 0px;
+    right : -55px;
+    -webkit-transition:all 0.5s ease;
+    -moz-transition:all 0.5s ease;
+     -ms-transition:all 0.5s ease;
+      -o-transition:all 0.5s ease;
+         transition:all 0.5s ease;
     background-color: white;
   }
   .imgbtn:hover .butn {
     opacity: 1;
-    transform: translate(-30vh,35vh);
+    top : -90px ;
   }
   .imgg .butn:hover {
     background-color: #343232;

@@ -15,11 +15,11 @@ export default function ImageGalery() {
       <div className="grid-img">
         <div className="imgg" id="imgg">
           {
-              products.map((product) => (
+              products.map((item) => (
                   <ProductBox
-                  price={product.price}
-                  model={product.model} 
-                  url={product.url}
+                  price={item.price}
+                  model={item.model} 
+                  url={item.url}
                   />
                 
               ))

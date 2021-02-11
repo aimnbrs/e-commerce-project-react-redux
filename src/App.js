@@ -18,6 +18,7 @@ import { productCollection } from "./redux/products/productAction";
 
 function App() {
   const dispatch = useDispatch();
+ 
   useEffect(()=> {
     dispatch(productCollection())
   }, [])
