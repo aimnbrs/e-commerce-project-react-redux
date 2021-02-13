@@ -1,17 +1,26 @@
 .productMin {
     display: flex;
-    flex-direction: row;
+
+    justify-content: space-between;
 }
 
-.productMinSection {
- margin-left:80px ;
- margin-top: 80px;
-}
 
 .productMinDetails {
- padding: 0 50px 0 25px;
-}
+padding-left: 20px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+} 
 
 .productMinDetails h4 {
- margin-top: 0;
+ margin: 0;
+ padding: 0;
 }
+
+.productMinSection  {
+    width: 70%;
+    
+}
+/* .productMinSection h4 {
+    width: 80%;
+} */

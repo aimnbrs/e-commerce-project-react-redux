@@ -33,13 +33,13 @@ flex-direction: column;
   justify-content: space-between;
   flex-wrap: wrap;
   }
-  .filtrSearch {
+  .filterSearch {
     display: flex;
     width: 170px;
     justify-content: space-between;
     }
 
-  .filtrsrc a {
+  .filterSearch a {
     cursor: pointer;
     letter-spacing: 2px;
     margin-left: 8px;
@@ -50,68 +50,22 @@ flex-direction: column;
     border: 1px #D2D2D2 solid;
     transition: 0.5s;
   }
-  .filtrsrc i {
+  .filterSearch i {
     color: #9B9898;
     transition: 0.5s;
   }
-  .filtrsrc span {
+  .filterSearch span {
     margin-left: 8px;
   }
-  .filtrsrc a:hover  {
+  .filterSearch a:hover  {
     background-color: #7391F4;
     color:#E0E7FD;
   }
-  .filtrsrc a:hover i {
+  .filterSearch a:hover i {
     color:#E0E7FD;
   }
   
-  /*collapse menu-----------------------------*/
-  
-  .mainCollapse {
-    width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-
-  }
-  
-  .collapse {
-    display: flex;
-    flex-direction: row;
-    margin: 0 15vh 10vh 15vh;
-    background-color: #f5f6fa;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .firstListPart, .secondeListPart {
-    display: flex;
-    flex-direction: row;
-    width: 50%;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-
-  }
-  .collapse ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-  .collapse li {
-    cursor: pointer;
-    color: #8A8989;
-    font-family: 'Blinker', sans-serif;
-    margin-top: 0.5rem;
-  }
-  #collapse ul li:first-of-type {
-    font-size: 1.2rem;
-    color: #2f3640;
-    padding-bottom: 10px;
-  }
-  
-  .forth li a{
+  .querySection  a{
     background-color: #f5f6fa;
     display: inline-block;
     font-size: 0.7rem;
@@ -119,29 +73,6 @@ flex-direction: column;
     border: 0.5px #dfe6e9 solid;
     color: #636e72;
   }
-  /*------------------------------------------*/
-  @media screen and (max-width: 1100px) {
-.collapse {
-  flex-direction: column;
-}
-.firstListPart, .secondeListPart {
-  
-  width: 100%;
-  
-
-}
-    }
-    
-    @media screen and (max-width:760px) {
-      .collapse {
-        justify-content: flex-start;
-        align-items: flex-start;
-      }
-      .firstListPart, .secondeListPart {
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-direction: column;
-        
-      }
-  
-      }
+  .querySection .collapse {
+    background-color: #f5f6fa;
+  }
