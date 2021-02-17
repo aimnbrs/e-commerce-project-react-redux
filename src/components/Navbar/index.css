@@ -1,50 +1,45 @@
 
 
-
-/*ltl-nav--------------------------------------------------*/
 .ltl-nv {
   color: #949090 ;
   font-family: 'Blinker', sans-serif;
   font-size: 13.5px;
   background-color: #2F2D2D;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 0.09fr 0.85fr 0.5fr;
-  grid-template-rows: 7vh;
-  grid-template-areas: "h p div";
-}
-.ltl-nv div {
-  grid-area: div;
-  align-self: center;
-}
-.ltl-nv p {
-  grid-area: p;
+  grid-area: ltlNav;
   display: flex;
-  justify-content: left;
-  align-items: center;
+  justify-content: center; 
+  /* align-items: center; */
+  width: 100%;
+
 }
-.ltl-nv a {
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+}
+
+
+.rght a {
   border-left: #949090 2px solid;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 14px 20px;
   text-decoration: none;
   color: #949090 ;
 }
-.ltl-nv a:last-child {
+.rght a:last-child {
   border-right:  #949090 2px solid;
 }
-
-
-
-/*nav bar----------------------------------------------*/
-
+.rght {
+  /* margin: auto 0; */
+  display: flex;
+  align-items: center;
+}
 .bg-nv {
   display: grid;
   grid-template-columns: 0.269fr auto 0.45fr;
-  grid-template-rows: 13vh;
-  grid-template-areas: "logo menu icons";
+  grid-template-rows: auto 13vh ;
+  grid-template-areas:
+  "ltlNav ltlNav ltlNav"
+   "logo menu icons";
 }
 .logo {
   grid-area : logo;
@@ -53,8 +48,8 @@
   padding-left: 10vh;
 }
 .menu {
-  grid-area: menu;
   display: flex;
+  grid-area: menu;
   flex-direction: row;
   align-self: center;
   font-family: 'Blinker', sans-serif;
@@ -81,60 +76,50 @@
   color: #3B3737;
   transition: color 0.4s;
 }
-.menu a:first-of-type {
+.selectedPage {
   color: #8E3DF7;
 }
 .menu a:hover, .mn-icns a:hover {
   color: #8E3DF7;
 }
 
-@media screen and (max-width: 1025px) {
 
-  /*ltl-nav--------------------------------------------------*/
-  .ltl-nv {
-    overflow: hidden;
-    grid-template-columns: 100%;
-    grid-template-rows: 6vh 6vh;
-    grid-template-areas:
-    "p"
-    "div";
+
+ @media screen and (max-width: 915px) {
+  
+  .navContainer {
+    flex-direction: column;
+    width: 100%;
   }
-  .ltl-nv div {
-    grid-area: div;
-    overflow: hidden;
-    align-self: center;
-    margin-left: 30px;
+ 
+  .paraNav, .rght{
+    padding-left: 30px ;
   }
-  .ltl-nv p {
-    padding-bottom: 20px;
-    border-bottom: #949090 1px solid;
-    padding-left: 30px;
-    justify-content: left;
+  .paraNav {
+    border-bottom: #949090 2px solid;
+    
   }
-
-  }
-
-
-@media screen and (max-width: 915px) {
-  /*nav bar----------------------------------------------*/
-
   .bg-nv {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10vh 35vh ;
+    grid-template-columns: 1fr;
+    grid-template-rows: 13vh auto ;
     grid-template-areas:
      "logo  icons"
+     "ltlNav ltlNav"
      "menu menu"
      ;
   }
 
   .logo {
-    text-align: left;
+    display: flex;
     padding-left: 4.5vh;
+    margin: 0;
   }
   .menu {
     flex-direction: column;
-    padding: 20px 0;
+    margin: 0;
+    padding: 20px  0;
     background-color: #a29bfe;
+    width: 100%;
   }
   .menu a li {
     font-weight: normal;
@@ -145,21 +130,7 @@
   .menu a {
     width : max-content;
   }
-  /*global css*/
-  .f-s {
-    height: 145vh;
-  }
+  
+  
 
-  /*animation sction*/
-
-
-  .slide1,.slide2,.slide3 {
-    top: 55vh;
-  }
-
-  /*text slide*/
-
-  .txtsld1, .txtsld2, .txtsld3 {
-    top: 90vh;
-  }
-}
+} 

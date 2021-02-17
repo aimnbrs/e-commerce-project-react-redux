@@ -18,50 +18,60 @@
     font-size: 1.5rem;
 }
 
-.container {
+.mainAboutContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.aboutContainer {
     display: flex;
     flex-direction: row;
+    width: 95%;
     padding: 100px 0 100px 0;
 }
 
-img {
-    max-width: 400px;
-    max-height: 400px;
+
+.mainAboutContainer img {
+    transform: translate(20px, -20px);
+    width: 100%;
+    height: auto;
 }
 .informations {
-    height: 150hv;
-    padding: 0 100px 0 100px;
     flex:4;
 }
 .image {
     flex:3;
 }
-p {
+.mainheaderContact p {
     font-size: 1.1rem;
     font-family: 'Blinker', sans-serif;
     color: rgb(122, 121, 121);
 }
 .imgBorder {
     z-index: -1;
-    top : 80vh;
-    right: 18vh;
-    position: absolute;
+    float: right;
     border : rgb(211, 210, 210) 4px solid;
-    width: 400px;
-    height: 400px;
 }
 
 .imgBorder2 {
     z-index: -1;
-    transform: translateY(20px);
-    left: 18vh;
     position: relative;
     border : rgb(211, 210, 210) 4px solid;
-    width: 400px;
-    height: 400px;
 }
 
 .borderleft {
     border-left: rgb(211, 210, 210) 2px solid;
     padding: 0 20px 0 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .aboutContainer {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+    .informations {
+        padding: 0;
+    }
 }
