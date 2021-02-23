@@ -11,7 +11,7 @@
     height: 100%;
     background-size: cover;
     background-image: url("slide-01.jpg");
-    
+    background-position: 60% center;
   }
   /*text slides*/
   .txtsld1 p,  .txtsld1 h1 {

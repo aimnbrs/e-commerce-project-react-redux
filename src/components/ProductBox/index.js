@@ -14,7 +14,7 @@ function ProductBox({ model, price, url }) {
             </a>
           </div>
           <div class="heartlk">
-            <a href="#">{model}</a>
+            <a href="#" style={{cursor:"default"}}>{model}</a>
             <span>
               <a href="#">
                 <i class="far fa-heart fa-lg"></i>

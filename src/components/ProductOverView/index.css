@@ -1,5 +1,3 @@
-
-
 .ths {
   width: 100%;
   display: flex;
@@ -7,72 +5,90 @@
   flex-direction: column;
   align-items: center;
 }
-  
+
 .prov {
   width: 87%;
-display: flex;
-justify-content: center;
-flex-direction: column;
-  }
-  .prov p {
-    grid-area: p;
-    font-size: 2.5rem;
-    font-family: 'Blinker', sans-serif, cursive;
-    font-weight: bold;
-  }
-  .searchArea {
-    height: 20vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  .filter {
+  
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.prov p {
+  font-size: 2.5rem;
+  font-family: "Blinker", sans-serif, cursive;
+  font-weight: bold;
+  margin: 0;
+}
+.searchArea {
+  
+  /* height: 20vh; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.filter {
   display: flex;
   width: 500px;
   justify-content: space-between;
   flex-wrap: wrap;
-  }
-  .filterSearch {
-    display: flex;
-    width: 170px;
-    justify-content: space-between;
-    }
+}
+.filter a {
+  color: #888;
+}
+.filterSearch {
+  display: flex;
+  width: 210px;
+  justify-content: space-between;
+}
 
-  .filterSearch a {
-    cursor: pointer;
-    letter-spacing: 2px;
-    margin-left: 8px;
-    color: #BAB9B9;
-    font-family: 'Blinker', sans-serif;
-    font-size: 1.1rem;
-    padding: 10px 20px 10px 20px;
-    border: 1px #D2D2D2 solid;
-    transition: 0.5s;
+.filterSearch a {
+  cursor: pointer;
+  color: #888;
+  font-family: "Blinker", sans-serif;
+  font-size: 1.1rem;
+  padding: 5px 15px;
+  border: 1px #d2d2d2 solid;
+  transition: 0.5s;
+}
+.filterSearch i {
+  color: #9b9898;
+  transition: 0.5s;
+}
+.filterSearch span {
+  margin-left: 8px;
+}
+.filterSearch a:hover {
+  background-color: #7391f4;
+  color: #e0e7fd;
+}
+.filterSearch a:hover i {
+  color: #e0e7fd;
+}
+
+.querySection a {
+  background-color: #f5f6fa;
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.5rem 0.7rem;
+  border: 0.5px #dfe6e9 solid;
+  color: #636e72;
+}
+.querySection .collapse {
+  background-color: #f5f6fa;
+}
+.querySection .mainCollapse {
+  padding: 10vh 0;
+}
+.querySection .collapse li {
+cursor: pointer;
+}
+@media screen and (max-width:900px) {
+  .searchArea {
+    flex-direction: column;
+    height: 20vh;
+    align-items: flex-start;
+    justify-content: space-around;
   }
-  .filterSearch i {
-    color: #9B9898;
-    transition: 0.5s;
-  }
-  .filterSearch span {
-    margin-left: 8px;
-  }
-  .filterSearch a:hover  {
-    background-color: #7391F4;
-    color:#E0E7FD;
-  }
-  .filterSearch a:hover i {
-    color:#E0E7FD;
-  }
-  
-  .querySection  a{
-    background-color: #f5f6fa;
-    display: inline-block;
-    font-size: 0.7rem;
-    padding: 0.5rem 0.7rem;
-    border: 0.5px #dfe6e9 solid;
-    color: #636e72;
-  }
-  .querySection .collapse {
-    background-color: #f5f6fa;
-  }
+}

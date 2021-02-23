@@ -5,6 +5,7 @@
     max-width: 30%;
     min-width: 50vh;
     position: relative;
+    margin-top: 8px;
   }
 .mainPhotoCategory img {
   width: 100%;

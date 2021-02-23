@@ -70,10 +70,18 @@ body {
 }
 
 .quantity span  {
+   
     border: rgb(158, 158, 158) 1px solid;
     padding: 10px 20px 10px 20px;
     margin: 1px;
 }
+.quantity span:first-of-type,.quantity span:last-of-type  {
+    cursor: pointer;
+}
+.quantity span:first-of-type:active,.quantity span:last-of-type:active {
+    background-color: #7391f4;
+    color: #e0e7fd;
+  }
 
 
 .productName h4 {

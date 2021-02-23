@@ -13,6 +13,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import { useDispatch } from 'react-redux';
 import { productCollection } from "./redux/products/productAction";
+import SignOut from './pages/SignOut';
 
 
 
@@ -39,6 +40,7 @@ function App() {
       <Route path='/Production' component={ProductionDetails}/>
       <Route path='/signIn' component={SignIn}/>
       <Route path='/signUp' component={SignUp}/>
+      <Route path='/signOut' component={SignOut}/>
       </Switch>
       <Footer/>
       </BrowserRouter>
