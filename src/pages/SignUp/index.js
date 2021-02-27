@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { signUp } from "../../redux/users/userAction";
-import store from "./../../store.js"
 import "./index.css";
 
 export default function SignUp() {
@@ -15,35 +15,39 @@ export default function SignUp() {
   let passwordRegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
   let isValidePassword = passwordRegExp.test(password);
   let isValideEmail = emailRegExp.test(email);
+  let isError = false;
 
-  //despatch signin action if the input is valid
+  //dispatch signup action if the input is valid
   const dispatch = useDispatch();
+  const history = useHistory();
   const submitHandler = (e) => {
-   
     e.preventDefault();
     name != "" && isValideEmail && isValidePassword
-      ? (dispatch(signUp(name, email, password)))
+      ? dispatch(signUp(name, email, password))
       : setSubmited(true);
-      console.log("store",store.getState())
-      console.log("here",userInfo,err)
   };
 
-  //set error
-  const signin = useSelector((state) => state.signin);
-  let { userInfo } = signin || {};
-  userInfo && (userInfo = userInfo[0]);
-  let { err } = signin || {};
-  let isError = false;
-  useEffect(() => {
-    if (err) {
-      userInfo.split(" ").includes("duplicate") ? isError = true : isError = false
-    }
-    return () => {};
-  }, [err]);
+  const signup = useSelector((state) => state.sign);
+  let { userInfo, err } = signup || {};
 
+  
+    if (userInfo) {
+      userInfo.split(" ").includes("duplicate")
+        ? (isError = true)
+        : history.push("/Home");
+    }
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        if (submited) {
+          setSubmited(false)
+        }
+      }, 2500);
+      return () => clearTimeout(timer);
+    }, [submited]);
   return (
     <Fragment>
-      <div className="main">
+      <div className="mainsignup">
         <p className="sign" align="center">
           Sign Up
         </p>
@@ -56,7 +60,7 @@ export default function SignUp() {
             placeholder="Username"
           />
           {!name && submited && (
-            <p style={{ color: "red" }} className="sign" align="center">
+            <p className="isa_error"  align="center">
               name is empty
             </p>
           )}
@@ -68,13 +72,13 @@ export default function SignUp() {
             placeholder="Email"
           />
           {!isValideEmail && submited && (
-            <p className="sign" align="center" style={{ color: "red" }}>
+            <p className="isa_error" style={{ color: "red" }}>
               Invalid Email Format
             </p>
           )}
 
-          {(isError && submited) && (
-            <p className="sign" align="center" style={{ color: "red" }}>
+          {isError && (
+            <p className="isa_error" align="center" style={{ color: "red" }}>
               The email has been already taken
             </p>
           )}
@@ -85,8 +89,8 @@ export default function SignUp() {
             align="center"
             placeholder="Password"
           />
-          {(!isValidePassword && submited) && (
-            <p style={{ color: "red" }} className="sign" align="center">
+          {!isValidePassword && submited && (
+            <p className="isa_error"  align="center">
               Password should contain at least 8 characters, 1 number, 1
               lowercase, 1 uppercase
             </p>
@@ -94,6 +98,11 @@ export default function SignUp() {
           <button className="submit" align="center">
             Sign up
           </button>
+          {err && (
+            <p className="isa_error"  align="center">
+              Fail to connect, Please try again
+            </p>
+          )}
         </form>
       </div>
     </Fragment>

@@ -25,11 +25,11 @@ export default function SignOut() {
 
   return (
     <Fragment>
-      <div className="main">
-        <p className="sign" align="center">
+      <div className="mainout">
+        <p className="signout" align="center">
           Sign out
         </p>
-          <button onClick = {submitHandler} className="submit" align="center">
+          <button onClick = {submitHandler} className="submitout" align="center">
             Sign out
           </button>
       </div>

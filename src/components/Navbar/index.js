@@ -9,12 +9,11 @@ function Navbar(props) {
   const refList = useRef(null);
   const history = useHistory();
   const isSmallDScreen = useMediaQuery({ query: "(max-width:915px)" });
-  const signin = useSelector((state) => state.signin);
+  const signin = useSelector((state) => state.sign);
   //is the state is empty return signin else return userinfo object of sign, you will have
   //problem destructering of a null value
   let { userInfo } = signin || {};
-  userInfo && (userInfo = userInfo[0]);
-
+  
   // the menuList impeliment
   //  in a different branch of the dome whenevre the screenSize changes
   const menuList = (

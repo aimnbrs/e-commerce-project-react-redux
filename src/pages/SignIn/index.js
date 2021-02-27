@@ -5,29 +5,26 @@ import { signIn } from "../../redux/users/userAction";
 import "./index.css";
 
 export default function SignIn() {
-  
+  //declaring variabales
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const signin = useSelector(state => state.signin)
-  let {userInfo} =  signin || {};
-  userInfo && (userInfo = userInfo[0])
+  const sign = useSelector((state) => state.sign);
+  let { userInfo, err } = sign || {};
+  console.log("reacterror", err);
   const history = useHistory();
-  // const {err} =  signin || {};
- 
+
+  //dispatching
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(signIn(email, password));
   };
 
   if (userInfo) {
-    console.log("historysignin",userInfo.name)
-    history.push('/Home')
-  } 
-  // if (err) {
-    
-  // } 
-  
+      console.log("historysignin", userInfo.name);
+      history.push("/Home");
+  }
+
   return (
     <Fragment>
       <div className="main">
@@ -49,16 +46,15 @@ export default function SignIn() {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
+          {err == "201" && (
+            <p className="isa_error" align="center">
+              <a href="#" />
+              Invalid Email Or Password
+            </p>
+          )}
           <button className="submit" align="center" type="submit">
             Sign In
           </button>
-          {/* {
-          err &&  
-          <p className="forgot" align="center" style={{color:"red"}}>
-          <a href="#" />
-          Invalid Email Or Password
-        </p>
-          } */}
         </form>
       </div>
     </Fragment>

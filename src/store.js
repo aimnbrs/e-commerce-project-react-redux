@@ -1,17 +1,18 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from "redux-thunk";
-import {signInReducer, signUpReducer, updateReducer} from './redux/users/userReducer'
+import {signReducer, updateReducer} from './redux/users/userReducer'
 import { productCollectionReducer } from "./redux/products/productReducer"
 
 
+
 const initialState = {
-    signin :  {userInfo : null} ,
+    signin :  {} ,
     productcollection : { products : {} } 
 }
 
 const reducer = combineReducers({
-signin : signInReducer,
-signUp : signUpReducer,
+sign : signReducer,
+update : updateReducer,
 productCollection : productCollectionReducer
 })
 const store = createStore(reducer, initialState ,applyMiddleware(thunk))
