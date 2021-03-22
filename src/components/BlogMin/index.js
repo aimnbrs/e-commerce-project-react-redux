@@ -6,7 +6,7 @@ export default function ProductMin(props) {
   return (
     <Fragment>
       <div className="productMinSection">
-        <h2>Featured Products</h2>
+        
         <div className="productMin">
           <img src={productmin01} />
           <div className="productMinDetails">

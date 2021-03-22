@@ -1,0 +1,50 @@
+aside {
+    /* background-color: rgba(212, 212, 245, 0.5); */
+    /* opacity: 0.5; */
+    /* background-color: black; */
+    z-index: 10;
+    
+    position: fixed;
+    /* justify-content: flex-end; */
+    /* align-items: center; */
+    /* padding: 0;
+    margin: 0; */
+    top: 0;
+    /* right: 0; */
+    height: 100%;
+    width: 120%;
+    
+}
+
+.listWishItems {
+    position: absolute;
+    /* opacity: 1; */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 60vh;
+    right: 0;
+    
+}
+
+.listWishItemsSlide {
+    right: 0;
+}
+
+.listWishItems img {
+    width: 25%;
+    height: auto;
+}
+
+.wishItems {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.wishListPay {
+   width: 70%;
+}

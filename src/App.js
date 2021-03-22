@@ -14,6 +14,7 @@ import SignUp from './pages/SignUp';
 import { useDispatch } from 'react-redux';
 import { productCollection } from "./redux/products/productAction";
 import SignOut from './pages/SignOut';
+import SwitchContext from './components/Navbar/switchContext';
 
 
 
@@ -28,7 +29,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <SwitchContext>
       <Navbar/>
+      </SwitchContext>
       <Switch>
       <Route exact path='/' component={Home}/>
       <Route path='/Home' component={Home}/>

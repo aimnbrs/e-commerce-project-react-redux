@@ -51,12 +51,12 @@ export default function Blog() {
             <h3 style={category}>Life Style</h3>
             <h3 style={categoryStyle}>DIY {"&"} Crafts</h3>
           </div>
+          <h2>Featured Products</h2>
           <ProductMin />
           <ProductMin />
           <ProductMin />
 
-          <div></div>
-          <div></div>
+          
         </div>
       </div>
       </div>

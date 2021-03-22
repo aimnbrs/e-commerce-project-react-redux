@@ -1,11 +1,15 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./index.css";
 import logo from "./logo-01.png";
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
+import Aside from "../Aside";
+import { DispatchSwitch, switchConsts } from "./switchContext";
 
 function Navbar(props) {
+
+
   const refList = useRef(null);
   const history = useHistory();
   const isSmallDScreen = useMediaQuery({ query: "(max-width:915px)" });
@@ -73,6 +77,11 @@ function Navbar(props) {
         : (element.style.color = "#3B3737");
     }
   };
+//setting dispatch
+const dispatchContext = React.useContext(DispatchSwitch)
+
+
+
 
   return (
     <Fragment>
@@ -101,13 +110,16 @@ function Navbar(props) {
             <i className="fas fa-search fa-lg" />
           </Link>
           <a>
-            <i className="fas fa-shopping-cart fa-lg"></i>
+            <i onClick={()=>
+              dispatchContext({ type : switchConsts.sideToggelSwitch })     
+              } className="fas fa-shopping-cart fa-lg"></i>
           </a>
           <a>
             <i className="far fa-heart fa-lg"></i>
           </a>
         </div>
       </nav>
+      <Aside/>
     </Fragment>
   );
 }
