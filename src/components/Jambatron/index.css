@@ -2,39 +2,44 @@
 
 
 /*section1*/
+
 .f-s {
     height: 100vh;
-  }
+     }
+
+     
   #slide1 {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    transform: translateY(-90px);
+    z-index: -5;
+    width: 100vw;
+    height: 100vh;
     background-size: cover;
-    background-image: url("slide-01.jpg");
     background-position: 60% center;
   }
   /*text slides*/
   .txtsld1 p,  .txtsld1 h1 {
     opacity: 1;
     width: max-content;
-    position: absolute;
+    position: relative;
   }
   
   .txtsld1 {
-    position: absolute;
-    top: 43%;
+    position: relative;
+    top: 100px;
     left: 6%;
+    opacity: 0.8;
   }
   .txtslide h1 {
-    bottom : -160px;
+    /* bottom : -160px; */
     font-size: 3.7rem;
     margin:  20px 0 45px 0;
     padding: 0;
   }
   .ho{
-    bottom : -190px;
-    opacity: 0;
-    position: absolute;
+    z-index: 4;
+    /* bottom : -190px; */
+    position: relative;
     width: max-content;
   }
   .txtslide p {
@@ -43,33 +48,52 @@
     font-family: 'Titillium Web', sans-serif;
     font-family: 'PT Sans Narrow', sans-serif;
     font-family: 'Montserrat', sans-serif;
-    bottom : -20px;
+    /* bottom : -20px; */
     font-size: 1.5rem;
     margin:  0;
     padding: 0;
   }
-  
-  .butn {
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Blinker', sans-serif;
-    font-family: 'Titillium Web', sans-serif;
-    font-family: 'PT Sans Narrow', sans-serif;
-    font-family: 'Anton', sans-serif;
-    font-family: 'Exo 2', sans-serif;
-    font-family: 'Lexend Exa', sans-serif;
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    color: #ffffff;
-    font-size: 13px;
-    background-color: #8E3DF7;
-    padding: 12px 30px 12px 30px;
-    text-decoration: none;
-    letter-spacing: 0px;
-    transition: background 0.8s;
-  }
-  
-  .butn:hover {
-  background-color: #373535;
-  }
+  .slideButn {
+  display : inline-block;
+  padding:0.3em 1.2em;
+  margin:0 0.1em 0.1em 0;
+  border:0.16em solid rgba(255,255,255,0);
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+  text-align:center;
+  transition: all 0.2s;
+  background-color: rgb(84, 153, 199);
+    }
+    .slideButn:hover{
+  border-color: rgba(255,255,255,1);
+    }
+ .next, .prev {
+   color : black;
+   opacity: 0.5;
+   /* width: 30px;
+    height: 30px; */
+    background-repeat: no-repeat;
+    position: absolute;
+    top : 310px;
+    cursor: pointer; 
+    transition: color 0.3s ;
+    margin: 0;
+    padding: 0;
+ }
+ .next:hover, .prev:hover {
+color: blue;
+ }
+ .next {
+  right :40px;
+  z-index: 2;
+ }
+ .prev {
+   left :40px
+ }
+
   

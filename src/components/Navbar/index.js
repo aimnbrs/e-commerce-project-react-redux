@@ -101,6 +101,7 @@ const dispatchContext = React.useContext(DispatchSwitch)
             {isSmallDScreen && menuList}
           </div>
         </nav>
+        
         <div className="logo">
           <img src={logo} alt="" />
         </div>
