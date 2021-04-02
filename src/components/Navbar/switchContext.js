@@ -10,7 +10,7 @@ export const StateSwitch = React.createContext();
 
 const initialState = {
     sideToggel : false ,
-    productDetailsToggel : false
+    productDetailsToggel : false,
 }
 function switchReducer(state, action) {
     switch (action.type) {

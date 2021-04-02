@@ -23,7 +23,7 @@ function Aside(props) {
   item &&
       <animated.aside key={key} style={props}
       onClick={(e)=>{
-        if(e.target.tagName == "ASIDE"){
+        if(e.target.tagName == "ASIDE" && (visible === true)){
           console.log(e.target.tagName);
           dispatchContext({ type : switchConsts.sideToggelSwitch })
         }

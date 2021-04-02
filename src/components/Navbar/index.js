@@ -1,4 +1,10 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, {
+  Fragment,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+} from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./index.css";
 import logo from "./logo-01.png";
@@ -8,8 +14,6 @@ import Aside from "../Aside";
 import { DispatchSwitch, switchConsts } from "./switchContext";
 
 function Navbar(props) {
-
-
   const refList = useRef(null);
   const history = useHistory();
   const isSmallDScreen = useMediaQuery({ query: "(max-width:915px)" });
@@ -17,7 +21,7 @@ function Navbar(props) {
   //is the state is empty return signin else return userinfo object of sign, you will have
   //problem destructering of a null value
   let { userInfo } = signin || {};
-  
+
   // the menuList impeliment
   //  in a different branch of the dome whenevre the screenSize changes
   const menuList = (
@@ -59,8 +63,6 @@ function Navbar(props) {
     );
   }
 
-  
- 
   // color changing of the menu whenever the pages changes
   useEffect(() => {
     changePageTitelColor();
@@ -77,11 +79,32 @@ function Navbar(props) {
         : (element.style.color = "#3B3737");
     }
   };
-//setting dispatch
-const dispatchContext = React.useContext(DispatchSwitch)
+  //setting dispatch
+  const dispatchContext = React.useContext(DispatchSwitch);
 
+  // sticky position sconde nav
+  const navRef = useRef();
+  const [scroll, setScroll] = useState(window.pageYOffset);
+  const [isTopZero, setIsTopZero] = useState(window.pageYOffset < 50);
+  const monNav = useCallback(() => {
+    setScroll(() => window.pageYOffset);
+    setIsTopZero(window.pageYOffset < 50);
+  }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", monNav);
+    navRef.current.style.top = `${
+      window.pageYOffset <= 50 ? 50 - window.pageYOffset : 0
+    }px`;
+    return () => {
+      window.removeEventListener("scroll", monNav);
+    };
+  }, [window.pageYOffset]);
 
-
+  // animating nav when it get to top = 0
+  const changeNav = () =>
+    isTopZero
+      ? { backgroundColor: "" }
+      : { backgroundColor: "white", padding: " 8px 0 " };
 
   return (
     <Fragment>
@@ -101,26 +124,30 @@ const dispatchContext = React.useContext(DispatchSwitch)
             {isSmallDScreen && menuList}
           </div>
         </nav>
-        
-        <div className="logo">
-          <img src={logo} alt="" />
-        </div>
-        {!isSmallDScreen && menuList}
-        <div className="mn-icns">
-          <Link to="Production">
-            <i className="fas fa-search fa-lg" />
-          </Link>
-          <a>
-            <i onClick={()=>
-              dispatchContext({ type : switchConsts.sideToggelSwitch })     
-              } className="fas fa-shopping-cart fa-lg"></i>
-          </a>
-          <a>
-            <i className="far fa-heart fa-lg"></i>
-          </a>
+        <div className="secondNav" ref={navRef} style={changeNav()}>
+          <div className="logo">
+            <img src={logo} alt="" />
+          </div>
+          {!isSmallDScreen && menuList}
+          <div className="mn-icns">
+            <Link to="Production">
+              <i className="fas fa-search fa-lg" />
+            </Link>
+            <a>
+              <i
+                onClick={() =>
+                  dispatchContext({ type: switchConsts.sideToggelSwitch })
+                }
+                className="fas fa-shopping-cart fa-lg"
+              ></i>
+            </a>
+            <a>
+              <i className="far fa-heart fa-lg"></i>
+            </a>
+          </div>
         </div>
       </nav>
-      <Aside/>
+      <Aside />
     </Fragment>
   );
 }

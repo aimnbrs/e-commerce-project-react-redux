@@ -1,6 +1,8 @@
 
 
 .mainPhotoCategory {
+
+
     border: 1px #E8E6E6 solid;
     max-width: 30%;
     min-width: 50vh;
@@ -8,6 +10,7 @@
     margin-top: 8px;
   }
 .mainPhotoCategory img {
+  z-index: -1;
   width: 100%;
   height: auto;
 }

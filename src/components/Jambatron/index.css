@@ -29,6 +29,7 @@
     top: 100px;
     left: 6%;
     opacity: 0.8;
+    z-index: -2;
   }
   .txtslide h1 {
     /* bottom : -160px; */
@@ -75,8 +76,6 @@
  .next, .prev {
    color : black;
    opacity: 0.5;
-   /* width: 30px;
-    height: 30px; */
     background-repeat: no-repeat;
     position: absolute;
     top : 310px;
@@ -84,13 +83,15 @@
     transition: color 0.3s ;
     margin: 0;
     padding: 0;
+    z-index: 0;
+
  }
  .next:hover, .prev:hover {
 color: blue;
  }
  .next {
   right :40px;
-  z-index: 2;
+ 
  }
  .prev {
    left :40px

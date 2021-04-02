@@ -9,13 +9,16 @@
   display: flex;
   justify-content: center; 
   width: 100%;
- 
+  margin-bottom: 80px;
+  z-index: 10;
+
 }
 .navContainer {
  
   display: flex;
   justify-content: space-between;
   width: 88%;
+  
 }
 
 
@@ -29,21 +32,23 @@
   border-right:  #949090 2px solid;
 }
 .rght {
-  /* margin: auto 0; */
+
   display: flex;
   align-items: center;
 }
 .bg-nv {
-  z-index: 6;
+ width : 100%;
+  z-index: 10;
   top: 0;
   display: grid;
-  grid-template-columns: 0.269fr auto 0.45fr;
-  grid-template-rows: auto 13vh ;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto ;
   grid-template-areas:
-  "ltlNav ltlNav ltlNav"
-   "logo menu icons";
+  "ltlNav"
+   "seconde";
 }
 .logo {
+  top: 0;
   grid-area : logo;
   align-self: center;
   text-align: center;
@@ -55,6 +60,7 @@
   flex-direction: row;
   align-self: center;
   font-family: 'Blinker', sans-serif;
+  padding-right: 400px;
 }
 .mn-icns {
   grid-area : icons;
@@ -63,6 +69,8 @@
   justify-content: center;
   margin-right: 20px;
   transition: color 0.4s;
+  padding-right: 60px;
+
 }
 .menu a{
   margin-left : 30px;
@@ -83,8 +91,18 @@
 .menu li:hover, .mn-icns i:hover, .rght a:hover {
   color: #8E3DF7;
 }
+.secondNav {
+  z-index: 10;
 
-
+  width: 100%;
+ position : fixed ;
+  grid-area: seconde;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding :  10px 0 ;
+  transition: background-color 0.3s 0s, padding 0.2s 0.1s;
+}
 
  @media screen and (max-width: 915px) {
   

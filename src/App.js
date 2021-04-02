@@ -33,17 +33,20 @@ function App() {
       <Navbar/>
       </SwitchContext>
       <Switch>
+      <Route path='/Production' component={ProductionDetails}/>
+      <SwitchContext>
       <Route exact path='/' component={Home}/>
       <Route path='/Home' component={Home}/>
+      <Route path='/shop' component={Shop}/>
       <Route path='/about' component={About}/>
       <Route path='/features' component={Features}/>
       <Route path='/blog' component={Blog}/>
-      <Route path='/shop' component={Shop}/>
       <Route path='/Contact' component={Contact}/>
-      <Route path='/Production' component={ProductionDetails}/>
       <Route path='/signIn' component={SignIn}/>
       <Route path='/signUp' component={SignUp}/>
       <Route path='/signOut' component={SignOut}/>
+      </SwitchContext>
+
       </Switch>
       <Footer/>
       </BrowserRouter>
