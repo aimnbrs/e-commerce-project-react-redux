@@ -6,6 +6,7 @@ import React, {
   useCallback,
 } from "react";
 import { Link, useHistory } from "react-router-dom";
+import modal from 'react-modal'
 import "./index.css";
 import logo from "./logo-01.png";
 import { useMediaQuery } from "react-responsive";

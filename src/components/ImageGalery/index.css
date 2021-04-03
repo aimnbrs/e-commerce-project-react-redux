@@ -9,7 +9,7 @@ justify-content: center;}
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .img img:first-of-type {
   width: 250px;
