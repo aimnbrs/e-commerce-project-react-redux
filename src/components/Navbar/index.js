@@ -6,7 +6,7 @@ import React, {
   useCallback,
 } from "react";
 import { Link, useHistory } from "react-router-dom";
-import modal from 'react-modal'
+import Modal from "react-modal";
 import "./index.css";
 import logo from "./logo-01.png";
 import { useMediaQuery } from "react-responsive";
@@ -106,7 +106,12 @@ function Navbar(props) {
     isTopZero
       ? { backgroundColor: "" }
       : { backgroundColor: "white", padding: " 8px 0 " };
+  // Search pop up
 
+  const [searchBar, setBearchBar] = useState(false);
+  const toggleSearch = () => {
+    setBearchBar(!searchBar);
+  };
   return (
     <Fragment>
       <nav className="bg-nv">
@@ -131,9 +136,9 @@ function Navbar(props) {
           </div>
           {!isSmallDScreen && menuList}
           <div className="mn-icns">
-            <Link to="Production">
-              <i className="fas fa-search fa-lg" />
-            </Link>
+            <a>
+              <i onClick={toggleSearch} className="fas fa-search fa-lg" />
+            </a>
             <a>
               <i
                 onClick={() =>
@@ -149,6 +154,25 @@ function Navbar(props) {
         </div>
       </nav>
       <Aside />
+      <Modal
+        isOpen={searchBar}
+        shouldCloseOnOverlayClick={true}
+        onRequestClose={() => toggleSearch()}
+        closeTimeoutMS={400}
+        className="galeryModal"
+        overlayClassName="galeryOverlay"
+        style={{
+          overlay: {
+            zIndex: 22,
+    transform : !searchBar ? 'translate(0, -50%)' : 'translate(0, 0)'
+          },
+   
+    content: { opacity: searchBar ? 1 : 0, transition: "opacity 0.4s"},
+        }}
+      >
+        <a href="#" class="closeSearch" onClick={() => toggleSearch()} />
+        <input className="searchInput" placeholder="Search" />
+      </Modal>
     </Fragment>
   );
 }

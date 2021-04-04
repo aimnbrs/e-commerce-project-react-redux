@@ -22,6 +22,24 @@ export default function ImageGalery() {
     <Fragment>
 
       <div className="mainGridImage">
+      <ReactModal 
+     
+      isOpen = {modalVisibility}
+      shouldCloseOnOverlayClick={true}
+      onRequestClose={()=>dispatchContext({ type: switchConsts.productDetailsToggelSwitch })}
+      closeTimeoutMS={400}
+ 
+
+      style={{
+        overlay: {
+          backgroundColor:'rgba(0, 0, 0, 0.75)' ,
+          zIndex : 22
+         },
+      }}
+      >
+      <ProductionDetails/>
+
+      </ReactModal>
       <div className="grid-img">
         <div className="imgg" id="imgg">
           {products.map((item) => (
@@ -35,25 +53,7 @@ export default function ImageGalery() {
         <a className="butn btnfxd">ADD PRODUCT</a>
         <a className="butn btnfxd">LOAD MORE</a>
       </div>
-      <ReactModal 
-      
-      isOpen = {modalVisibility}
-      shouldCloseOnOverlayClick={true}
-      onRequestClose={()=>dispatchContext({ type: switchConsts.productDetailsToggelSwitch })}
-      closeTimeoutMS={400}
- 
 
-      style={{
-        overlay: {
-          backgroundColor:'rgba(0, 0, 0, 0.75)' ,
-          zIndex : 22
-         },
-      content : {opacity : modalVisibility ? 1 : 0, transition: 'opacity 0.4s'} 
-      }}
-      >
-      <ProductionDetails/>
-
-      </ReactModal>
 
     </Fragment>
   );
