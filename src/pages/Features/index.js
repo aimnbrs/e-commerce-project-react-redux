@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Button from "../../microComponents/button";
 import "./index.css";
 import itemcart from "./item-cart-04.jpg";
 export default function Features() {
@@ -64,15 +65,14 @@ export default function Features() {
                 <input placeholder="State / country" />
                 <input placeholder="Postcode / zip" />
               </div>
-
-              <button>UPDATE TOTALS</button>
+              <Button>UPDATE TOTALS</Button>
             </div>
           </div>
           <div>
             <h2>
               Total : <span>90$</span>
             </h2>
-            <button>PROCEED TO CHECKOUT</button>
+            <Button>PROCEED TO CHECKOUT</Button>
           </div>
         </div>
       </div>

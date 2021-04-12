@@ -1,6 +1,8 @@
 .mainGridImage {
   display: flex;
-justify-content: center;}
+  justify-content: center;
+
+}
 .grid-img {
   width: 90%;
   margin: 10vh 0;
@@ -10,6 +12,8 @@ justify-content: center;}
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
+
 }
 .img img:first-of-type {
   width: 250px;
@@ -21,8 +25,10 @@ justify-content: center;}
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  z-index: 5;
+
 }
-.img a{
+.img a {
   color: #8a8989;
   font-family: "Exo 2", sans-serif;
   font-size: 1rem;
@@ -42,31 +48,6 @@ justify-content: center;}
   margin-top: 0.5rem;
 }
 
-/*bottun hover effect*/
-.imgbtn .butn {
-  opacity: 0;
-  position: relative;
-  /* transform: translate(-20vh,50vh) ; */
-  top: 0px;
-  right: -55px;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  background-color: white;
-}
-.imgbtn:hover .butn {
-  cursor: pointer;
-  opacity: 1;
-  top: -90px;
-}
-.imgg .butn:hover {
-  background-color: #343232;
-  color: white;
-}
-
-/*image focuse on hover*/
 .imgbtn {
   width: 250px;
   height: 320px;
@@ -79,22 +60,19 @@ justify-content: center;}
   transform: scale(1.1);
 }
 /*buttn*/
-.btn {
+.buttonContainer {
+  align-self: center;
   display: flex;
   justify-content: center;
   margin: 10vh 0 20vh 0;
 }
-.btnfxd {
-  font-size: 1rem;
-  color: black;
-  background-color: #e0e0e1;
-  display: inline;
-  transition: 0.3s;
+.insideButton {
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
 }
-.btnfxd:hover {
-  color: white;
-  background-color: #343232;
-}
+
+
 
 .ReactModal__Overlay {
   opacity: 0;
@@ -104,7 +82,6 @@ justify-content: center;}
 
 .ReactModal__Overlay--after-open {
   opacity: 1;
-
 }
 
 .ReactModal__Overlay--before-close {

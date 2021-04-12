@@ -69,21 +69,21 @@
 }
 .ths input {
   
+  
   width: 87%;
   border-width : 0.5px ;
   font-size: large;
-  padding-left: 10px;
+  padding-left: 30px;
   border: 1px #d2d2d2 solid;
   box-shadow: none;
+  
 }
 .ths input::placeholder {
   color: rgb(34, 33, 33);
-  
+  /* padding-left: 10px; */
 }
-.querySection {
-z-index: -1;
-  
-}
+
+
 .querySection a {
   background-color: #f5f6fa;
   display: inline-block;
@@ -94,16 +94,8 @@ z-index: -1;
 }
 .querySection .collapse {
   background-color: #f5f6fa;
-  z-index: -1;
+}
 
-}
-.querySection .mainCollapse {
-  padding: 10vh 0;
-  z-index: -1;
-}
-.querySection .collapse li {
-cursor: pointer;
-}
 @media screen and (max-width:900px) {
   .searchArea {
     flex-direction: column;

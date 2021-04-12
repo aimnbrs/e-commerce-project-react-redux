@@ -12,6 +12,9 @@ const Footer = (props) => {
     <Fragment>
       <footer>
         <ListQuery
+         bgMainClps = {"#201B1B"}
+         bgColorCollapse = {"#201B1B"}
+         firstHead = {"white"}
           firstList={[
             <li>CATEGORIES</li>,
             <li>Women</li>,

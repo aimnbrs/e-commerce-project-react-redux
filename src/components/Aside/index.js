@@ -3,6 +3,7 @@ import ProductMin from "../BlogMin";
 import { StateSwitch, DispatchSwitch, switchConsts } from "../Navbar/switchContext";
 import { useTransition , animated } from "react-spring";
 import "./index.css";
+import Button from "../../microComponents/button";
 
 function Aside(props) {
   const stateContext = React.useContext(StateSwitch)
@@ -42,8 +43,8 @@ function Aside(props) {
             <h2>
               Total : <span>90$</span>
             </h2>
-            <button>VIEW CART</button>
-            <button>CHECKOUT</button>
+            <Button>VIEW CART</Button>
+            <Button>CHECKOUT</Button>
           </div>
         </div>
       

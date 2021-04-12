@@ -1,10 +1,7 @@
 footer .mainCollapse {
   background-color: #201B1B;
-  
 }
-footer .collapse {
-  width: 100%;
-}
+
 footer .collapse ul li:first-of-type {
   color: white;
 
@@ -39,6 +36,3 @@ footer .collapse ul li:first-of-type {
     border-bottom: 1px #E0E7FD solid;
   }
   
-  footer li {
-    cursor:default;
-  }

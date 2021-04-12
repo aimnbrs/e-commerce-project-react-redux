@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Button from "../../microComponents/button";
 import "./contact.css";
 
 export default function Contact() {
@@ -19,7 +20,7 @@ export default function Contact() {
                   placeholder="Email address"
                 />
                 <textarea rows="10" placeholder="Message"></textarea>
-                <button type="submit">Submit</button>
+                <Button  type="submit">Submit</Button>
               </form>
             </div>
           </div>

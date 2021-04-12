@@ -16,6 +16,7 @@
     "react": "^17.0.2",
     "react-cookie": "^4.0.3",
     "react-dom": "^17.0.2",
+    "react-font": "^1.2.1",
     "react-modal": "^3.11.2",
     "react-redux": "^7.2.2",
     "react-responsive": "^8.2.0",
@@ -27,6 +28,7 @@
     "react-validation": "^3.0.7",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.3",
     "use-measure": "^0.3.0",
     "v8": "^0.1.0",
     "validator": "^13.5.2"

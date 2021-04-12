@@ -6,6 +6,8 @@ import 'react-spring-modal/styles.css';
 import "./index.css";
 import ProductionDetails from "../ProductionDetails";
 import { StateSwitch, DispatchSwitch, switchConsts } from "../Navbar/switchContext";
+import Button from "../../microComponents/button";
+import Loader from "../../microComponents/loader";
 
 
 
@@ -20,7 +22,13 @@ export default function ImageGalery() {
 
   return (
     <Fragment>
-
+ 
+  {loading ? (
+    <Loader></Loader>
+      ) : err ? (
+        <div>{err} </div>
+      ) : (
+        <>
       <div className="mainGridImage">
       <ReactModal 
      
@@ -49,10 +57,25 @@ export default function ImageGalery() {
       </div>
       </div>
 
-      <div className="btn" id="butn-btnfxd">
-        <a className="butn btnfxd">ADD PRODUCT</a>
-        <a className="butn btnfxd">LOAD MORE</a>
+      <div className="buttonContainer">
+        <div className="insideButton">
+        <Button
+        buttonWidth="150px"
+        buttonColor="#201B1B"
+        buttonBgColor='#e6e6e6'
+        >
+        ADD PRODUCT
+        </Button>
+        <Button
+          buttonWidth="150px"
+          buttonColor="#201B1B"
+          buttonBgColor='#e6e6e6'
+        >
+        LOAD MORE
+        </Button>
       </div>
+        </div>
+       </>)}
 
 
     </Fragment>

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { signUp } from "../../redux/users/userAction";
 import "./index.css";
+import Loader from "../../microComponents/loader";
+
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -25,28 +27,34 @@ export default function SignUp() {
     name != "" && isValideEmail && isValidePassword
       ? dispatch(signUp(name, email, password))
       : setSubmited(true);
-  };
+   };
 
   const signup = useSelector((state) => state.sign);
-  let { userInfo, err } = signup || {};
+  let { loading, userInfo, err } = signup || {};
 
-  
     if (userInfo) {
-      userInfo.split(" ").includes("duplicate")
+      (typeof userInfo === 'string') 
         ? (isError = true)
         : history.push("/Home");
     }
+    useEffect(() => {
+       console.log('loading',loading);
+    }, [loading])
 
     useEffect(() => {
       const timer = setTimeout(() => {
         if (submited) {
           setSubmited(false)
         }
-      }, 2500);
+      }, 4000);
       return () => clearTimeout(timer);
     }, [submited]);
   return (
     <Fragment>
+          {loading ? (
+    <Loader></Loader>
+      ) : (
+        <>
       <div className="mainsignup">
         <p className="sign" align="center">
           Sign Up
@@ -77,7 +85,7 @@ export default function SignUp() {
             </p>
           )}
 
-          {isError && (
+          {isError && submited && (
             <p className="isa_error" align="center" style={{ color: "red" }}>
               The email has been already taken
             </p>
@@ -105,6 +113,8 @@ export default function SignUp() {
           )}
         </form>
       </div>
+      </>
+      )}
     </Fragment>
   );
 }

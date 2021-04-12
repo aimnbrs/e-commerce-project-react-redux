@@ -4,6 +4,8 @@ function signReducer(state = {}, action) {
   switch (action.type) {
     case userConst.SIGNIN_REQUEST:
       return { loading: true };
+    case userConst.SIGNUP_REQUEST:
+      return { loading: true };
     case userConst.SIGNIN_SUCCESS:
       return { loading: false, userInfo: action.payload };
     case userConst.SIGNIN_FAILURE:

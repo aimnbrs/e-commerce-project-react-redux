@@ -19,6 +19,7 @@
     display: flex;
 }
 .contactContainer {
+    margin : 100px 0;
     width: 100%;
     justify-content: center;
 }
@@ -64,16 +65,7 @@
     width: 90%;
     margin-bottom: 20px;
 }
-.mainContact button {
-    margin-top: 20px;
-    border-radius: 25px;
-    width: 90%;
-    height: 8vh;
-    color: white;
-    background-color: rgb(12, 12, 12);
-    border-style: none;
-    font-size: 17px;
-}
+
 .mainContactform {
     margin-top: 4vh;
 }

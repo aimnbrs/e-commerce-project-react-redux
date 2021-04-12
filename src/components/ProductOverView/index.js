@@ -17,7 +17,7 @@ const ProductOverView = () => {
     height: searchDown ? 60 : 0,
     opacity: searchDown ? 1 : 0,
     marginTop: searchDown ? 50 : 0,
-    padding : searchDown ? 'default' : 0
+    marginBottom : searchDown ? 'default' : 0
   });
   console.log("height", down);
   const toggle = () => {
@@ -59,13 +59,14 @@ const ProductOverView = () => {
             </div>
           </div>
         </header>
-        <animated.input style={{ ...searchProps }} placeholder="Search" />
+  
+        <animated.input style={{ ...searchProps, paddingLeft: '30px' }} placeholder="Search" />
 
         <animated.div 
           className="querySection"
           style={{...props, width: "100%" }}
         >
-          <ListQuery
+          <ListQuery 
             firstList={[
               <li>Sort By</li>,
               <li>Default</li>,
@@ -75,7 +76,7 @@ const ProductOverView = () => {
               <li>Price: Low to High</li>,
               <li>Price: High to Low</li>,
             ]}
-            secondeList={[
+            thirdList={[
               <li>Color</li>,
               <li>Black</li>,
               <li>Blue</li>,
@@ -84,7 +85,7 @@ const ProductOverView = () => {
               <li>Red</li>,
               <li>White</li>,
             ]}
-            thirdList={[
+            secondeList={[
               <li>Price</li>,
               <li>All</li>,
               <li>$0.00 - $50.00</li>,
@@ -96,22 +97,22 @@ const ProductOverView = () => {
             forthList={[
               <li>Tags</li>,
               <li>
-                <a href="#" className="butn">
+                <a>
                   Fashion
                 </a>
               </li>,
               <li>
-                <a href="#" className="butn">
+                <a >
                   Lifestyle
                 </a>
               </li>,
               <li>
-                <a href="#" className="butn">
+                <a >
                   Denim
                 </a>
               </li>,
               <li>
-                <a href="#" className="butn">
+                <a >
                   Streetstyle
                 </a>
               </li>,

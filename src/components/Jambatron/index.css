@@ -29,7 +29,7 @@
     top: 100px;
     left: 6%;
     opacity: 0.8;
-    z-index: -2;
+    /* z-index: -2; */
   }
   .txtslide h1 {
     /* bottom : -160px; */
@@ -38,7 +38,7 @@
     padding: 0;
   }
   .ho{
-    z-index: 4;
+    /* z-index: 4; */
     /* bottom : -190px; */
     position: relative;
     width: max-content;
@@ -63,6 +63,7 @@
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
+  cursor: pointer;
   font-weight:300;
   color:#FFFFFF;
   text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);

@@ -43,14 +43,13 @@ const signUp = (name, email, password) => async (dispatch) => {
       "http://localhost:5000/user/signup",
       userQuery
     );
-    console.log("userAction", response);
+    console.log("userSignUp", response);
     if (response.status<300 && response.data=='') {
       throw new Error(response.status);
     } else {
       let { data } = response;
       dispatch({ type: userConst.SIGNIN_SUCCESS, payload: data });
-      Cookie.set("userInfo", JSON.stringify(data));
-      console.log("signupaction", store.getState());
+      console.log("signupSeccess", store.getState());
     }
    
   } catch (error) {
@@ -59,7 +58,7 @@ const signUp = (name, email, password) => async (dispatch) => {
       error.message ||
       error.toString();
     dispatch({ type: userConst.SIGNUP_FAILURE, payload: message });
-    console.log(store.getState());
+    console.log('failer',store.getState(),error);
   }
 };
 
