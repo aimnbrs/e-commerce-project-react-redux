@@ -37,7 +37,7 @@ const signIn = (email, password) => async (dispatch) => {
 
 const signUp = (name, email, password) => async (dispatch) => {
   const userQuery = { name, email, password };
-  dispatch({ type: userConst.SIGNUP_REQUEST });
+  dispatch({ type: userConst.SIGNIN_REQUEST });
   try {
     let response = await axios.post(
       "http://localhost:5000/user/signup",
