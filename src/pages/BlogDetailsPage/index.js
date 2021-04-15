@@ -1,17 +1,18 @@
 import React, { Fragment, useState } from "react";
 import BlogDetails from "../../components/BlogDetails";
 import ProductMin from "../../components/BlogMin";
-import {  useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router";
 import "./index.css";
 
-export default function Blog() {
-  const [pageNumber, setPageNumber] = useState(0);
+export default function BlogDetailsPage() {
   const blogs = useSelector((state) => state.blogs.blogs);
-
+  const  {id}  = useParams();
+  console.log('currentid',id);
+  const currentBlog = blogs.filter(element => element._id === id && element)[0]
+  console.log(currentBlog);
   const categoryStyle = {
     margin: " 0 auto 0 auto",
-    // padding: "5px 0 5px 0",
     borderBottom: "rgb(168, 174, 175) 0.5px solid",
     borderTop: "rgb(168, 174, 175) 0.5px solid",
   };
@@ -29,46 +30,13 @@ export default function Blog() {
         <div class="grid-container">
           {/* <div class="content0"></div> */}
           <div class="content1">
-            {blogs.map(
-              (element, index) =>
-                index > pageNumber * 3 - 1 &&
-                index <= pageNumber * 3 + 2 && (
-                  <BlogDetails
-                    text={element.text.split(" ").splice(0,25).join(" ") + "..."}
-                    url={element.url}
-                    artical={element.artical}
-                    author={element.author}
-                    id={element._id}
+                  <BlogDetails key={currentBlog._id}
+                    text={currentBlog.text}
+                    url={currentBlog.url}
+                    artical={currentBlog.artical}
+                    author={currentBlog.author}
                   />
-                )
-            )}
 
-            <div className="menuNumber">
-              <div
-                onClick={() => {
-                  setPageNumber(0);
-                  window.scroll({
-                    top: 0,
-                    left: 0,
-                    behavior: "smooth",
-                  });
-                }}
-              >
-                1
-              </div>
-              <div
-                onClick={() => {
-                  setPageNumber(1);
-                  window.scroll({
-                    top: 0,
-                    left: 0,
-                    behavior: "smooth",
-                  });
-                }}
-              >
-                2
-              </div>
-            </div>
           </div>
           <div class="content2">
             <div className="searchBar">
