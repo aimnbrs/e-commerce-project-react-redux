@@ -1,13 +1,20 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import BlogDetails from "../../components/BlogDetails";
+import blogs from '../../redux/blogs/blogsAction';
 import ProductMin from "../../components/BlogMin";
 import {  useSelector } from "react-redux";
+import { useDispatch } from 'react-redux';
 
 import "./index.css";
 
 export default function Blog() {
+  const dispatch = useDispatch();
+  useEffect(()=> {
+  dispatch(blogs())
+  }, [])
+
   const [pageNumber, setPageNumber] = useState(0);
-  const blogs = useSelector((state) => state.blogs.blogs);
+  const blogsList = useSelector((state) => state.blogs.blogs);
 
   const categoryStyle = {
     margin: " 0 auto 0 auto",
@@ -29,7 +36,7 @@ export default function Blog() {
         <div class="grid-container">
           {/* <div class="content0"></div> */}
           <div class="content1">
-            {blogs.map(
+            {blogsList.map(
               (element, index) =>
                 index > pageNumber * 3 - 1 &&
                 index <= pageNumber * 3 + 2 && (

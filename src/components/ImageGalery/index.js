@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ProductBox from "../ProductBox";
 import ReactModal from 'react-modal';
@@ -19,8 +19,10 @@ export default function ImageGalery() {
   const stateContext = React.useContext(StateSwitch)
   const dispatchContext = React.useContext(DispatchSwitch);
   let modalVisibility = stateContext.productDetailsToggel
-
+  
+  
   return (
+ 
     <Fragment>
  
   {loading ? (

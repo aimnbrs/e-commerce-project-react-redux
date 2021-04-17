@@ -12,22 +12,12 @@ import Contact from './pages/Contact';
 import ProductionDetails from './components/ProductionDetails';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import { useDispatch } from 'react-redux';
-import { productCollection } from "./redux/products/productAction";
-import blogs from "./redux/blogs/blogsAction";
 import SignOut from './pages/SignOut';
 import SwitchContext from './components/Navbar/switchContext';
 
 
 
 function App() {
-  const dispatch = useDispatch();
- 
-  useEffect(()=> {
-    dispatch(productCollection())
-    dispatch(blogs())
-  }, [])
-  
  
   return (
     <div className="App">

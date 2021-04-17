@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import "./index.css";
 import Jambatron from "./../../components/Jambatron";
 import MainCategory from "../../components/MainCategory";
