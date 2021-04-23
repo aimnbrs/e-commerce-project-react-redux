@@ -6,14 +6,12 @@ import store from "../../store";
 
 import "./index.css";
 
+
 export default function SignOut() {
 
  
   const dispatch = useDispatch();
   const history = useHistory();
-  // const signin = useSelector((state) => state.signin);
-  // const userInfo = signin.userInfo && signin;
-  
  
   
   const submitHandler = (e) => {

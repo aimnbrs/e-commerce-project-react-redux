@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import BlogDetails from "../../components/BlogDetails";
-import ProductMin from "../../components/BlogMin";
+import ProductMin from "../../components/ProductMin";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import "./index.css";

@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useRef, useEffect } from "react";
-import ProductMin from "../BlogMin";
+import { useSelector } from "react-redux"
+import ProductMin from "../ProductMin";
 import { StateSwitch, DispatchSwitch, switchConsts } from "../Navbar/switchContext";
 import { useTransition , animated } from "react-spring";
 import "./index.css";
@@ -11,7 +12,7 @@ function Aside(props) {
   let visible = stateContext.sideToggel
 
   const refAside = useRef(null);
-  // let asideBg = refAside.current.style.backgroundColor
+  
   
   const transitions = useTransition(visible, null ,{
     from: { opacity: 0, transform: 'translate3d(20px,0,0)' },
@@ -20,6 +21,10 @@ function Aside(props) {
     
   })
  
+  const orderlist = useSelector((state) => state.orders);
+  const { orders } = orderlist || {};
+
+
   return transitions.map(({item, key, props})=>
   item &&
       <animated.aside key={key} style={props}
@@ -36,9 +41,14 @@ function Aside(props) {
       className="listWishItems"
       >
         <div className="wishItems">
-        <ProductMin />
-        <ProductMin />
-        <ProductMin />
+         {orders && orders.map((item,index) => (
+           index < 3 &&
+                  <ProductMin
+                    price={item.product.price}
+                    model={item.product.model}
+                    url={item.product.url}
+                  />
+                ))}
         <div className="wishListPay">
             <h2>
               Total : <span>90$</span>

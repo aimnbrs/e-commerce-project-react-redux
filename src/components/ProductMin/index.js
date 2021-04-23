@@ -1,17 +1,17 @@
 import React, { Fragment } from "react";
 import "./index.css";
-import productmin01 from "./product-min-01.jpg";
 
-export default function ProductMin(props) {
+export default function ProductMin({ model, price, url }) {
+  
   return (
     <Fragment>
       <div className="productMinSection">
         
         <div className="productMin">
-          <img src={productmin01} />
+          <img src={url} />
           <div className="productMinDetails">
-            <h4>White Shirt With Pleat Detail Back</h4>
-            <span>$19.00</span>
+            <h4>{ model }</h4>
+            <span>{ price } $</span>
           </div>
         </div>
       </div>

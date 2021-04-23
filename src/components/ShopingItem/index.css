@@ -1,0 +1,72 @@
+
+.mainPrice, .itemCart,.mainItemCart, .productName {
+    display: flex;
+}
+
+.mainItemCart {
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    width: max-content;
+    height: max-content;
+    margin-bottom: 20px;
+}
+
+
+
+.mainPrice, .itemCart {
+    border: rgb(158, 158, 158) 1px solid;
+    width: 45vh;
+    padding-right: 5vh;
+    padding-left: 5vh;
+    justify-content: space-between;
+}
+
+
+.itemCart {
+    height: 0;
+    border-top: none;
+    justify-content : space-between;
+    align-items: center;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    border-top-style: none;
+}
+
+.quantity span  {
+   
+    border: rgb(158, 158, 158) 1px solid;
+    padding: 10px 20px 10px 20px;
+    margin: 1px;
+}
+.quantity span:first-of-type,.quantity span:last-of-type  {
+    cursor: pointer;
+}
+.quantity span:first-of-type:active,.quantity span:last-of-type:active {
+    background-color: #7391f4;
+    color: #e0e7fd;
+  }
+
+
+.productName h4 {
+    margin: 26px 0 0 20px;
+}
+
+@media screen and (min-width:700px) {
+    .secondePart .mainPrice,.secondePart .itemCart {border-left: none;}
+    .firstPart .mainPrice,.firstPart .itemCart {border-right: none ;}
+
+}
+
+@media screen and (max-width:700px) {
+    .secondePart .mainPrice,.secondePart .itemCart {border-top: none;}
+    .firstPart .mainPrice,.firstPart .itemCart,.secondePart .mainPrice  {border-bottom: none ;}
+    .mainPrice, .itemCart {  
+        width: 62vh;
+    }
+    .mainItemCart {
+        flex-wrap: wrap;
+     flex-direction: column;
+    }
+
+}

@@ -1,8 +1,22 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
+import ShopingItemMemo from "../../components/ShopingItem";
 import Button from "../../microComponents/button";
+import { useDispatch, useSelector } from "react-redux";
 import "./index.css";
-import itemcart from "./item-cart-04.jpg";
+import { orderCollection } from "../../redux/orders/orderAction";
 export default function Features() {
+  const orderlist = useSelector((state) => state.orders);
+  const sign = useSelector((state) => state.sign);
+  const { userInfo } = sign;
+  const { orders } = orderlist || [];
+  const dispatch = useDispatch();
+  useEffect(() => {
+    userInfo && dispatch(orderCollection(userInfo._id));
+  }, [userInfo]);
+
+  let total =
+    orders &&
+    orders.map((a) => a.product.price * a.quantity).reduce((a, b) => a + b, 0);
   return (
     <Fragment>
       <div className="ancre">
@@ -10,39 +24,33 @@ export default function Features() {
       </div>
 
       <div className="featuresSection">
-        <div className="mainItemCart">
-          <div className="firstPart">
-            <div className="mainPrice">
-              <h5>PRODUCT</h5> <h5>PRICE</h5>
-            </div>
-            <div className="itemCart">
-              <div className="productName">
-                <img src={itemcart} />
-                <h4>Fresh Strawberries</h4>
-              </div>
-              <span>$36.00</span>
-            </div>
-          </div>
-          <div className="secondePart">
-            <div className="mainPrice">
-              <h5>QUANTITY</h5> <h5>TOTAL</h5>
-            </div>
-            <div className="itemCart">
-              <div className="quantity">
-                <span>-</span>
-                <span>1</span>
-                <span>+</span>
-              </div>
-              <span>$49</span>
-            </div>
-          </div>
+        <div>
+          {orders && orders.length ? (
+            orders.map((item) => (
+              <ShopingItemMemo
+                price={item.product.price}
+                model={item.product.model}
+                url={item.product.url}
+                quantity={item.quantity}
+                orderId={item._id}
+                user_id={item.user_id}
+              />
+            ))
+          ) : userInfo ? (
+            <h1>you have no orders in your cart</h1>
+          ) : (
+            <h1>signUp to choose your own list of items</h1>
+          )}
         </div>
 
-        <div className="mainOptionCart">
+        <div
+          className="mainOptionCart"
+          style={{ display: orders && orders.length ? "block" : "none" }}
+        >
           <h2>CART TOTALS</h2>
           <div>
             <p>
-              Subtotal: <span>94,99$</span>
+              Subtotal: <span>{total}$</span>
             </p>
           </div>
           <div className="optionsItem">
@@ -70,7 +78,7 @@ export default function Features() {
           </div>
           <div>
             <h2>
-              Total : <span>90$</span>
+              Total : <span>{total} $</span>
             </h2>
             <Button>PROCEED TO CHECKOUT</Button>
           </div>

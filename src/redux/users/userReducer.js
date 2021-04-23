@@ -9,7 +9,7 @@ function signReducer(state = {}, action) {
     case userConst.SIGNIN_FAILURE:
       return { err: action.payload };
     case userConst.SIGNOUT:
-      return null;
+      return {};
     default:
       return state;
   }

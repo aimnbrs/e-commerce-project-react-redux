@@ -1,8 +1,15 @@
 import React, { Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { creatOrder } from "../../redux/orders/orderAction";
 import { DispatchSwitch, switchConsts } from "../Navbar/switchContext";
 
-function ProductBox({ model, price, url }) {
+
+function ProductBox({ model, price, url, productId }) {
   const dispatchContext = React.useContext(DispatchSwitch);
+  const sign = useSelector((state) => state.sign);
+  let {  userInfo } = sign || {};
+  
+  const dispatch = useDispatch();
 
   return (
     <Fragment>
@@ -24,11 +31,15 @@ function ProductBox({ model, price, url }) {
           </a>
           <span>
             <a href="#">
-              <i class="far fa-heart fa-lg"></i>
+              { userInfo && <i onClick = {(e)=> {
+                e.preventDefault();
+                dispatch(creatOrder(userInfo._id ,productId));
+                console.log('dispatched');
+              }} class="far fa-heart fa-lg"></i>}
             </a>
           </span>
         </div>
-        <p>{price}</p>
+        <p>{price} $</p>
       </div>
     </Fragment>
   );

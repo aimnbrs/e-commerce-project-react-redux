@@ -65,8 +65,6 @@ const signUp = (name, email, password) => async (dispatch) => {
 const signOut = () => async (dispatch) => {
   try {
     dispatch({ type: userConst.SIGNOUT });
-    Cookie.remove("userInfo");
-    console.log(store.getState());
   } catch (error) {
     dispatch({ type: userConst.SIGNOUT_FAILURE, payload: error.message });
     console.log("signoutFAILURE", store.getState());

@@ -1,10 +1,12 @@
 import React, { Fragment, useState, useEffect } from "react";
 import BlogDetails from "../../components/BlogDetails";
 import blogs from '../../redux/blogs/blogsAction';
-import ProductMin from "../../components/BlogMin";
+import ProductMin from "../../components/ProductMin";
 import {  useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
-
+import productmin01 from "./product-min-01.jpg";
+import productmin02 from "./product-min-02.jpg";
+import productmin03 from "./product-min-03.jpg";
 import "./index.css";
 
 export default function Blog() {
@@ -99,9 +101,24 @@ export default function Blog() {
               <h3 style={categoryStyle}>DIY {"&"} Crafts</h3>
             </div>
             <h2>Featured Products</h2>
-            <ProductMin />
-            <ProductMin />
-            <ProductMin />
+            <div>
+            <ProductMin
+                    price={19.00}
+                    model={'White Shirt With Pleat Detail Back'}
+                    url={productmin01}
+                  />
+                   <ProductMin
+                    price={39.00}
+                    model={'Converse All Star Hi Black Canvas'}
+                    url={productmin02}
+                  />
+                   <ProductMin
+                    price={17.00}
+                    model={'Nixon Porter Leather Watch In Tan'}
+                    url={productmin03}
+                  />
+            </div>
+        
           </div>
         </div>
       </div>
