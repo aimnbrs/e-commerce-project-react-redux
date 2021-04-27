@@ -1,0 +1,74 @@
+.img img:first-of-type {
+    width: 250px;
+    height: 320px;
+  }
+  .img {
+    color: #8a8989;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 5;
+  
+  }
+  .img a {
+    color: #8a8989;
+    font-family: "Exo 2", sans-serif;
+    font-size: 1rem;
+    margin: 15px 0 0 0;
+    width: max-content;
+    height: max-content;
+    z-index: 6;
+  }
+  .img span {
+    float: right;
+  }
+  .heartlk {
+    padding: 15px 0 0 0;
+  }
+  .img p {
+    color: #8a8989;
+    font-family: "Blinker", sans-serif;
+    margin-top: 0.5rem;
+  }
+  .imgbtn {
+    width: 250px;
+    height: 320px;
+    overflow: hidden;
+  }
+  .imgbtn img {
+    transition: 1s;
+  }
+  .imgbtn:hover img {
+    transform: scale(1.1);
+  }  
+
+  .galeryModalPopUp {
+    background:white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    top: 25%;
+    left: 30%;
+    right: 30%;
+    bottom: 25%;
+    outline: none;
+  }
+  .galeryOverlayPopUp {
+    background:rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 300ms ease-in-out;
+  
+  }
+  .popUpButtonOk {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+  }

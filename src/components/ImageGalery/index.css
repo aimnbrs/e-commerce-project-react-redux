@@ -15,50 +15,8 @@
 
 
 }
-.img img:first-of-type {
-  width: 250px;
-  height: 320px;
-}
-.img {
-  color: #8a8989;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  z-index: 5;
 
-}
-.img a {
-  color: #8a8989;
-  font-family: "Exo 2", sans-serif;
-  font-size: 1rem;
-  margin: 15px 0 0 0;
-  width: max-content;
-  height: max-content;
-}
-.img span {
-  float: right;
-}
-.heartlk {
-  padding: 15px 0 0 0;
-}
-.img p {
-  color: #8a8989;
-  font-family: "Blinker", sans-serif;
-  margin-top: 0.5rem;
-}
 
-.imgbtn {
-  width: 250px;
-  height: 320px;
-  overflow: hidden;
-}
-.imgbtn img {
-  transition: 1s;
-}
-.imgbtn:hover img {
-  transform: scale(1.1);
-}
 /*buttn*/
 .buttonContainer {
   align-self: center;
