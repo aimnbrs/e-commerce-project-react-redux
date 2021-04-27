@@ -42,10 +42,10 @@ const creatOrder = (user_id, product, quantity) => async (dispatch) => {
   }
 };
 
-const updateOrder = (valueUpate, id) => async (dispatch) => {
+const updateOrder = (valueUpate, orderId) => async (dispatch) => {
   dispatch({ type: orderConst.ORDERCOLLECTION_REQUEST });
   try {
-    let { data } = await axios.patch("http://localhost:5000/order/" + id
+    let { data } = await axios.patch("http://localhost:5000/order/" + orderId
     , {valueUpate}
     );
     console.log("updateorderAction", data);

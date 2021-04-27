@@ -1,15 +1,33 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { creatOrder } from "../../redux/orders/orderAction";
+import { creatOrder, deleteOrder, orderCollection } from "../../redux/orders/orderAction";
+import { productCollection } from "../../redux/products/productAction";
 import { DispatchSwitch, switchConsts } from "../Navbar/switchContext";
 
 
 function ProductBox({ model, price, url, productId }) {
   const dispatchContext = React.useContext(DispatchSwitch);
   const sign = useSelector((state) => state.sign);
-  let {  userInfo } = sign || {};
-  
   const dispatch = useDispatch();
+
+  const {  userInfo } = sign || {};
+  const orderlist = useSelector((state) => state.orders);
+  const { orders } = orderlist || {};
+  
+
+  const find = orders ? orders.find((item)=>
+  item.product._id === productId
+) : null
+const [isChecked, setIsChecked] = useState(false)
+ console.log('this is find',find);
+useEffect(() => {
+  setIsChecked(!(find === undefined))
+  console.log('hereorders',orders);
+ }, [find])
+   
+ 
+   
+console.log('isChecked', !(find === undefined) );
 
   return (
     <Fragment>
@@ -31,9 +49,9 @@ function ProductBox({ model, price, url, productId }) {
           </a>
           <span>
             <a href="#">
-              { userInfo && <i onClick = {(e)=> {
+              {  userInfo && <i style = {{ color : isChecked  &&  "yellow" }} onClick = {(e)=> {
                 e.preventDefault();
-                dispatch(creatOrder(userInfo._id ,productId));
+                !(find === undefined) ? dispatch(deleteOrder(find._id)) : dispatch(creatOrder(userInfo._id ,productId));
                 console.log('dispatched');
               }} class="far fa-heart fa-lg"></i>}
             </a>

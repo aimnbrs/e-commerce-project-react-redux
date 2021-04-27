@@ -21,12 +21,14 @@ export default function ImageGalery() {
   
   const sign = useSelector((state) => state.sign);
   const { userInfo } = sign || {};
- 
+  const orderlist = useSelector((state) => state.orders);
+  const { orders } = orderlist || {};
 
   useEffect(() => {
     userInfo && dispatch(orderCollection(userInfo._id));
   }, [userInfo]);
-
+console.log("orderchanggalary",orders);
+  
   const stateContext = React.useContext(StateSwitch);
   const dispatchContext = React.useContext(DispatchSwitch);
   let modalVisibility = stateContext.productDetailsToggel;
@@ -66,6 +68,7 @@ export default function ImageGalery() {
                     model={item.model}
                     url={item.url}
                     productId={item._id}
+                    key= { item._id }
                   />
                 ))}
               </div>

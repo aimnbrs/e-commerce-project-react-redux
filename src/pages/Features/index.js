@@ -10,10 +10,10 @@ export default function Features() {
   const { userInfo } = sign;
   const { orders } = orderlist || [];
   const dispatch = useDispatch();
-  useEffect(() => {
-    userInfo && dispatch(orderCollection(userInfo._id));
-  }, [userInfo]);
-
+  // useEffect(() => {
+  //   userInfo && dispatch(orderCollection(userInfo._id));
+  // }, [userInfo]);
+console.log("orderchang",orders);
   let total =
     orders &&
     orders.map((a) => a.product.price * a.quantity).reduce((a, b) => a + b, 0);
@@ -34,6 +34,7 @@ export default function Features() {
                 quantity={item.quantity}
                 orderId={item._id}
                 user_id={item.user_id}
+                key= { item._id }
               />
             ))
           ) : userInfo ? (

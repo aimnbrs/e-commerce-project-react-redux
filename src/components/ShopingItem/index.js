@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { Fragment } from "react";
+import { useDispatch } from "react-redux";
 import Button from "../../microComponents/button";
-import { deleteOrder, orderCollection, updateOrder } from "../../redux/orders/orderAction";
+import { deleteOrder, updateOrder } from "../../redux/orders/orderAction";
 
 import "./index.css";
 
