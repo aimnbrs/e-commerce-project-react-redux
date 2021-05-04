@@ -1,14 +1,20 @@
 import orderConst from "./orderConstant";
 import axios from "axios";
 import store from "./../../store";
+import Cookie from "js-cookie";
+
 
 
 const orderCollection = (user_id) => async (dispatch) => {
+  const token =  Cookie.get("token")
+ 
+  console.log('this is token action',token);
   dispatch({ type: orderConst.ORDERCOLLECTION_REQUEST });
   // console.log("ORDERCOLLECTION_REQUEST ", store.getState());
   try {
     let { data } = await axios.get("http://localhost:5000/order", {
       params: { user_id },
+       headers: {authorization : `Bearer ${token}`} 
     });
     console.log("orderCollectionAction", data);
     dispatch({ type: orderConst.ORDERCOLLECTION_SUCCESS, payload: data });
@@ -25,13 +31,13 @@ const orderCollection = (user_id) => async (dispatch) => {
 const creatOrder = (user_id, product, quantity) => async (dispatch) => {
   const orderQuery = { user_id, product, quantity };
   dispatch({ type: orderConst.CREATORDER_REQUEST });
+  // const token = Cookie.get("token")
   try {
-    let { data } = await axios.post(
-      "http://localhost:5000/order",
-      orderQuery
-    );
+    let { data } = await axios.post("http://localhost:5000/order", orderQuery, {
+      headers:  {authorization : `Bearer ${Cookie.get("token")}`},
+    });
     console.log("creatorderAction", data);
-    dispatch({ type: orderConst.CREATORDER_SUCCESS, payload: data  });
+    dispatch({ type: orderConst.CREATORDER_SUCCESS, payload: data });
     console.log("creatorderStore", store.getState());
   } catch (error) {
     dispatch({
@@ -45,11 +51,15 @@ const creatOrder = (user_id, product, quantity) => async (dispatch) => {
 const updateOrder = (valueUpate, orderId) => async (dispatch) => {
   dispatch({ type: orderConst.ORDERCOLLECTION_REQUEST });
   try {
-    let { data } = await axios.patch("http://localhost:5000/order/" + orderId
-    , {valueUpate}
+    let { data } = await axios.patch(
+      "http://localhost:5000/order/" + orderId,
+      { valueUpate },
+      {
+        headers: {authorization : `Bearer ${Cookie.get("token")}`},
+      }
     );
     console.log("updateorderAction", data);
-    dispatch({ type: orderConst.UPDATEORDER_SUCCESS, payload: data  });
+    dispatch({ type: orderConst.UPDATEORDER_SUCCESS, payload: data });
     console.log("updateorderStoreSUCCESS", store.getState());
   } catch (error) {
     dispatch({
@@ -63,9 +73,11 @@ const updateOrder = (valueUpate, orderId) => async (dispatch) => {
 const deleteOrder = (id) => async (dispatch) => {
   dispatch({ type: orderConst.DELETEORDER_REQUEST });
   try {
-    let { data } = await axios.delete("http://localhost:5000/order/" + id);
+    let { data } = await axios.delete("http://localhost:5000/order/" + id, {
+      headers: {authorization : `Bearer ${Cookie.get("token")}`},
+    });
     console.log("deleteorder", data);
-    dispatch({ type: orderConst.DELETEORDER_SUCCESS , payload: data });
+    dispatch({ type: orderConst.DELETEORDER_SUCCESS, payload: data });
     console.log("deleteorderStore", store.getState());
   } catch (error) {
     dispatch({
@@ -76,13 +88,4 @@ const deleteOrder = (id) => async (dispatch) => {
   }
 };
 
-// const orderDisconnect = () => async (dispatch) => {
-//   try {
-//     dispatch({ type: orderConst.DISCONNECT });
-//     console.log("DISCONNECTFAILURE", store.getState());
-//   } catch (error) {
-//     dispatch({ type: orderConst.DISCONNECT_FAILURE, payload: error.message });
-//     console.log("DISCONNECTFAILURE", store.getState());
-//   }
-// };
 export { orderCollection, creatOrder, updateOrder, deleteOrder };

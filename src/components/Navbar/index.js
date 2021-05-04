@@ -10,9 +10,10 @@ import Modal from "react-modal";
 import "./index.css";
 import logo from "./logo-01.png";
 import { useMediaQuery } from "react-responsive";
-import { useSelector } from "react-redux";
+import { useSelector} from "react-redux";
 import Aside from "../Aside";
 import { DispatchSwitch, switchConsts } from "./switchContext";
+import { signIn } from "../../redux/users/userAction";
 
 function Navbar(props) {
   const refList = useRef(null);
@@ -112,6 +113,9 @@ function Navbar(props) {
   const toggleSearch = () => {
     setBearchBar(!searchBar);
   };
+
+  //sign in
+
   return (
     <Fragment>
       <nav className="bg-nv">

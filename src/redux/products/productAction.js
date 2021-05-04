@@ -4,7 +4,13 @@ import store from "./../../store";
 import Cookie from "js-cookie";
 
 const productCollection = (
-  color, style, status, price, category, model, sortPrice
+  color,
+  style,
+  status,
+  price,
+  category,
+  model,
+  sortPrice
 ) => async (dispatch) => {
   dispatch({ type: productConst.PRODUCTCOLLECTION_REQUEST });
   console.log("error", store.getState());
@@ -31,7 +37,12 @@ const creatProduct = (category, model, price, url) => async (dispatch) => {
   try {
     let { data } = await axios.post(
       "http://localhost:5000/user/product",
-      productQuery
+      productQuery,
+      {
+        headers: {
+          Authorization: "Bearer" + Cookie.get("token"),
+        },
+      }
     );
     console.log("creatProductAction", data);
     dispatch({ type: productConst.CREATPRODUCT_SUCCESS });
@@ -48,7 +59,11 @@ const creatProduct = (category, model, price, url) => async (dispatch) => {
 const updateProduct = (id) => async (dispatch) => {
   dispatch({ type: productConst.UPDATE_REQUEST });
   try {
-    let { data } = await axios.patch("http://localhost:5000/product:" + id);
+    let { data } = await axios.patch("http://localhost:5000/product:" + id, {
+      headers: {
+        Authorization: "Bearer" + Cookie.get("token"),
+      },
+    });
     console.log("updateProductAction", data);
     dispatch({ type: productConst.UPDATEPRODUCT_SUCCESS });
     console.log("updateProductStore", store.getState());
@@ -64,7 +79,11 @@ const updateProduct = (id) => async (dispatch) => {
 const deleteProduct = (id) => async (dispatch) => {
   dispatch({ type: productConst.DELETEPRODUCT_REQUEST });
   try {
-    let { data } = await axios.delete("http://localhost:5000/product:" + id);
+    let { data } = await axios.delete("http://localhost:5000/product:" + id, {
+      headers: {
+        Authorization: "Bearer" + Cookie.get("token"),
+      },
+    });
     console.log("deleteProduct", data);
     dispatch({ type: productConst.DELETEPRODUCT_SUCCESS });
     console.log("deleteProductStore", store.getState());

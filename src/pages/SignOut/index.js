@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import {signOut} from "../../redux/users/userAction";
 import { useHistory } from "react-router-dom";
+import Cookie from 'js-cookie';
 import store from "../../store";
 
 import "./index.css";
@@ -16,6 +17,7 @@ export default function SignOut() {
   
   const submitHandler = (e) => {
     e.preventDefault();
+  Cookie.set('userInfo', JSON.stringify(""));
     dispatch(signOut());
     history.push('/Home')
     console.log("componentfunction", store.getState());

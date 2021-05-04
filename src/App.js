@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from "react-redux";
 import Home from './pages/Home';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -14,11 +15,13 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import SignOut from './pages/SignOut';
 import SwitchContext from './components/Navbar/switchContext';
+import { signIn } from './redux/users/userAction';
 
 
 
 function App() {
- 
+const dispatch = useDispatch()
+dispatch(signIn())
   return (
     <div className="App">
       <BrowserRouter>
