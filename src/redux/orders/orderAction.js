@@ -17,6 +17,8 @@ const orderCollection = (user_id) => async (dispatch) => {
        headers: {authorization : `Bearer ${token}`} 
     });
     console.log("orderCollectionAction", data);
+    if (typeof data == "string")  throw new Error(data.split(' ').slice(3).join(' '))
+
     dispatch({ type: orderConst.ORDERCOLLECTION_SUCCESS, payload: data });
     console.log("orderCollectionActionStore", store.getState());
   } catch (error) {
@@ -37,6 +39,9 @@ const creatOrder = (user_id, product, quantity) => async (dispatch) => {
       headers:  {authorization : `Bearer ${Cookie.get("token")}`},
     });
     console.log("creatorderAction", data);
+  
+    if (typeof data == "string")  throw new Error(data.split(' ').slice(3).join(' '))
+
     dispatch({ type: orderConst.CREATORDER_SUCCESS, payload: data });
     console.log("creatorderStore", store.getState());
   } catch (error) {
@@ -59,6 +64,8 @@ const updateOrder = (valueUpate, orderId) => async (dispatch) => {
       }
     );
     console.log("updateorderAction", data);
+        if (typeof data == "string")  throw new Error(data.split(' ').slice(3).join(' '))
+
     dispatch({ type: orderConst.UPDATEORDER_SUCCESS, payload: data });
     console.log("updateorderStoreSUCCESS", store.getState());
   } catch (error) {
@@ -77,6 +84,8 @@ const deleteOrder = (id) => async (dispatch) => {
       headers: {authorization : `Bearer ${Cookie.get("token")}`},
     });
     console.log("deleteorder", data);
+    if (typeof data == "string")  throw new Error(data.split(' ').slice(3).join(' '))
+
     dispatch({ type: orderConst.DELETEORDER_SUCCESS, payload: data });
     console.log("deleteorderStore", store.getState());
   } catch (error) {

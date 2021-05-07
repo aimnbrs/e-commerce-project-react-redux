@@ -19,8 +19,10 @@ const productCollection = (
       params: { color, style, status, price, category, model, sortPrice },
     });
     console.log("productCollectionAction", data);
+    
+      if (typeof data == "string")  throw new Error(data.split(' ').slice(3).join(' '))
     dispatch({ type: productConst.PRODUCTCOLLECTION_SUCCESS, payload: data });
-    Cookie.set("productCollectionStore", JSON.stringify(data));
+    
     console.log(store.getState());
   } catch (error) {
     dispatch({
@@ -45,6 +47,8 @@ const creatProduct = (category, model, price, url) => async (dispatch) => {
       }
     );
     console.log("creatProductAction", data);
+    const errorMessage = data.split(' ').slice(3).join(' ')
+      if (data.split(" ")[0] == "Error")  throw new Error(errorMessage)
     dispatch({ type: productConst.CREATPRODUCT_SUCCESS });
     console.log("creatProductStore", store.getState());
   } catch (error) {
@@ -65,6 +69,8 @@ const updateProduct = (id) => async (dispatch) => {
       },
     });
     console.log("updateProductAction", data);
+    const errorMessage = data.split(' ').slice(3).join(' ')
+      if (data.split(" ")[0] == "Error")  throw new Error(errorMessage)
     dispatch({ type: productConst.UPDATEPRODUCT_SUCCESS });
     console.log("updateProductStore", store.getState());
   } catch (error) {
@@ -85,6 +91,8 @@ const deleteProduct = (id) => async (dispatch) => {
       },
     });
     console.log("deleteProduct", data);
+    const errorMessage = data.split(' ').slice(3).join(' ')
+      if (data.split(" ")[0] == "Error")  throw new Error(errorMessage)
     dispatch({ type: productConst.DELETEPRODUCT_SUCCESS });
     console.log("deleteProductStore", store.getState());
   } catch (error) {

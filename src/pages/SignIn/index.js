@@ -9,7 +9,8 @@ export default function SignIn() {
   //declaring variabales
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const [submited, setSubmited] = useState(false);
+
   const dispatch = useDispatch();
   const sign = useSelector((state) => state.sign);
   let { loading, userInfo, err } = sign || {};
@@ -19,7 +20,8 @@ export default function SignIn() {
   //dispatching
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signIn(email, password));
+    ( email != "" && password != "" ) && dispatch(signIn(email, password));
+    setSubmited(true)
   };
 
   
@@ -53,12 +55,18 @@ export default function SignIn() {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          {err == "201" && (
+          
+          
+              {err !== "user is not authenticated" && 
+                   (<p className="isa_error" align="center">
+                   <a href="#" />{err}</p>
+                   )
+              }
+              {( !password || !email ) && submited && (
             <p className="isa_error" align="center">
-              <a href="#" />
-              Invalid Email Or Password
-            </p>
+            <a href="#" />fill all the inputs</p>
           )}
+  
           <button className="submit" align="center" type="submit">
             Sign In
           </button>

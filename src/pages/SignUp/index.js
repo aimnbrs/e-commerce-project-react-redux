@@ -17,7 +17,7 @@ export default function SignUp() {
   let passwordRegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
   let isValidePassword = passwordRegExp.test(password);
   let isValideEmail = emailRegExp.test(email);
-  let isError = false;
+
 
   //dispatch signup action if the input is valid
   const dispatch = useDispatch();
@@ -31,11 +31,9 @@ export default function SignUp() {
 
   const signup = useSelector((state) => state.sign);
   let { loading, userInfo, err } = signup || {};
-
+console.log(err, name);
     if (userInfo) {
-      (typeof userInfo === 'string') 
-        ? (isError = true)
-        : history.push("/Home");
+      history.push("/Home");
     }
     useEffect(() => {
        console.log('loading',loading);
@@ -85,9 +83,9 @@ export default function SignUp() {
             </p>
           )}
 
-          {isError && submited && (
+          {err &&  err !== "user is not authenticated" && (
             <p className="isa_error" align="center" style={{ color: "red" }}>
-              The email has been already taken
+              {err}
             </p>
           )}
           <input
@@ -106,11 +104,7 @@ export default function SignUp() {
           <button className="submit" align="center">
             Sign up
           </button>
-          {err && (
-            <p className="isa_error"  align="center">
-              Fail to connect, Please try again
-            </p>
-          )}
+
         </form>
       </div>
       </>

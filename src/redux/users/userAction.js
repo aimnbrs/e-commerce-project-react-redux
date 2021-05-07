@@ -19,9 +19,11 @@ const signIn = (email, password) => async (dispatch) => {
         withCredentials: true,
       }
     );
-    console.log("userAction", response.data, "response.ok = ", response.ok);
-    if (response.status < 300 && response.data == "") {
-      throw new Error(response.status);
+    console.log("userAction",typeof response.data, "response.ok = ");
+    if (typeof response.data == "string" ) {
+      console.log("this is response signin",response.data);
+      const errorMessage = response.data.split(' ').slice(3).join(' ')
+      if (response.data.split(" ")[0] == "Error")  throw new Error(errorMessage);
     } else {
       let { data } = response;
       dispatch({ type: userConst.SIGNIN_SUCCESS, payload: data });
@@ -30,11 +32,7 @@ const signIn = (email, password) => async (dispatch) => {
     }
   } catch (error) {
     console.log("signinerror", store.getState(), error);
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
-    dispatch({ type: userConst.SIGNIN_FAILURE, payload: message });
+    dispatch({ type: userConst.SIGNIN_FAILURE, payload: error.message });
     console.log("signinerror", store.getState(), error);
   }
 };
@@ -43,7 +41,7 @@ const signUp = (name, email, password) => async (dispatch) => {
   const userQuery = { name, email, password };
   dispatch({ type: userConst.SIGNIN_REQUEST });
   try {
-    let response = await axios.post(
+    let { data } = await axios.post(
       "http://localhost:5000/user/signup",
       userQuery,
       {
@@ -53,20 +51,19 @@ const signUp = (name, email, password) => async (dispatch) => {
         withCredentials: true,
       }
     );
-    console.log("userSignUp", response);
-    if (response.status < 300 && response.data == "") {
-      throw new Error(response.status);
+    // console.log("userSignUp", data.includes("Error"));
+    
+    if (typeof data === "string") {
+      if(data.includes("E11000")) {throw "Email has been already taken"}
+      else {
+        throw data
+      };
     } else {
-      let { data } = response;
       dispatch({ type: userConst.SIGNIN_SUCCESS, payload: data });
       console.log("signupSeccess", store.getState());
     }
   } catch (error) {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
-    dispatch({ type: userConst.SIGNUP_FAILURE, payload: message });
+    dispatch({ type: userConst.SIGNIN_FAILURE, payload: error });
     console.log("failer", store.getState(), error);
   }
 };
@@ -91,14 +88,9 @@ const update = (id) => async (dispatch) => {
     });
     console.log("userAction", data);
     dispatch({ type: userConst.UPDATE_SUCCESS, payload: data });
-    Cookie.set("userInfo", JSON.stringify(data));
     console.log("UPDATEaction", store.getState());
   } catch (error) {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
-    dispatch({ type: userConst.UPDATE_FAILURE, payload: message });
+    dispatch({ type: userConst.UPDATE_FAILURE, payload: error.message });
     console.log(store.getState());
   }
 };
