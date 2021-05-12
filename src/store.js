@@ -7,7 +7,7 @@ import { orderCollectionReducer } from "./redux/orders/orderReducer";
 
 const initialState = {
   signin: {},
-  productcollection: { products: {} },
+  products: [],
   blogsList: {},
   orders: [],
 };

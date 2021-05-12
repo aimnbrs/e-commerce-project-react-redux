@@ -33,23 +33,25 @@ const productCollection = (
   }
 };
 
-const creatProduct = (category, model, price, url) => async (dispatch) => {
-  const productQuery = { category, model, price, url };
+const creatProduct = (formData) => async (dispatch) => {
+  // const productQuery = { category, model, price, color, status, style,imageFile };
   dispatch({ type: productConst.CREATPRODUCT_REQUEST });
   try {
+    console.log("color",formData);
+    console.log('file',formData);
     let { data } = await axios.post(
-      "http://localhost:5000/user/product",
-      productQuery,
-      {
-        headers: {
-          Authorization: "Bearer" + Cookie.get("token"),
-        },
-      }
+      "http://localhost:5000/product",
+      formData,
+      // {
+      //   headers: {
+ 
+          // Authorization: "Bearer" + Cookie.get("token"),
+      //   },
+      // }
     );
     console.log("creatProductAction", data);
-    const errorMessage = data.split(' ').slice(3).join(' ')
-      if (data.split(" ")[0] == "Error")  throw new Error(errorMessage)
-    dispatch({ type: productConst.CREATPRODUCT_SUCCESS });
+    if (typeof data == "string")  throw new Error(data.split(' ').slice(3).join(' '))
+    dispatch({ type: productConst.CREATPRODUCT_SUCCESS, payload: data });
     console.log("creatProductStore", store.getState());
   } catch (error) {
     dispatch({
